@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="generator" content="Hugo 0.25.1" />
+  
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" id="google-fonts-css" href="https://fonts.googleapis.com/css?family=Merriweather+Sans%3A400%2C300%2C700%2C300italic%2C400italic%2C700italic&amp;ver=4.8" type="text/css" media="all">
+
+    <link rel="canonical" href="http://www.mihasoftware.com/posts/photo-section/">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+
+</head>
+
+<body>
+    <header class="banner">
+      <div class="container">
+        <a class="brand" href="http://www.mihasoftware.com">Miha Software</a>
+            <button id="menu-toggle" onclick="toggleMenu();"></button>
+    <nav class="nav-primary">
+        <div class="menu-main-menu-container">
+            <ul class="nav">
+                
+                
+                
+                
+          
+                <li class="menu-item  "><a href="/"><i class="fa fa-dot-circle-o"></i> home</a>
+                    
+                </li>
+            </li>
+            
+          
+                <li class="menu-item  "><a href="/posts/"><i class="fa fa-rss"></i> news</a>
+                    
+                </li>
+            </li>
+            
+          
+                <li class="menu-item menu-item-has-children "><a href="/apps/"><i class="fa fa-bars"></i> apps</a>
+                    
+                    <ul class="sub-menu">
+                        
+                            <li class="menu-item "><a href="/apps/analyzed/"><i class="fa fa-angle-right"></i> analyzed</a></li>
+                        
+                            <li class="menu-item "><a href="/apps/audio-analyzer/"><i class="fa fa-angle-right"></i> audio analyzer</a></li>
+                        
+                            <li class="menu-item "><a href="/apps/kurve/"><i class="fa fa-angle-right"></i> kurve</a></li>
+                        
+                            <li class="menu-item "><a href="/apps/photo-resize/"><i class="fa fa-angle-right"></i> photo resize</a></li>
+                        
+                    </ul>
+                    
+                </li>
+            </li>
+            
+          
+                <li class="menu-item  "><a href="/photos/"><i class="fa fa-camera-retro"></i> photos</a>
+                    
+                </li>
+            </li>
+            
+          
+                <li class="menu-item  "><a href="/about/"><i class="fa fa-user"></i> about</a>
+                    
+                </li>
+            </li>
+            
+        </ul>
+    </div>
+    </nav>
+    <hr>
+    <span class="tagline">Software Development by Marko Mihovilić</span>
+    </div>
+    </header>
+
+<main class='main'>
+    <article class='entry'>
+        <header class='entry-header'>
+    <h1 class='entry-title'>Photography Section</h1>
+    
+</header>
+
+        <div class='entry-content page'>
+    <p>Last week I found some time to add a Photography section to the site. I take lots of photos with my mobile phone and some of them turn out to be
+really cool or interesting. I’ll try to put up some of these photos with a small description of why I thought the particular photo was worth sharing.</p>
+
+<p>I’m really interested in improvements to the core photography experience on Android. Ever since the iPhone 4 and it’s remarkably good camera
+raised the bar, more and more casual photographers are moving to the mobile world. There are multiple reasons for this: it’s simply more practical
+to not have to carry a camera with you most of the time and on occasions when you usually would not think about carrying a camera, you have you mobile
+phone available to take a photo of some, unexpected, nice scene.</p>
+
+<p>The problem is: to improve the average user experience (average in the sense of trying to please the most customers), manufacturers are
+over-simplifying things. They want every customer to “be able to take amazing photos” (original marketing phrase copyright Apple ;)). This is
+completely fine and understandable, a noble goal to say the least. But, the problem is when development and engineering efforts are so much focused
+in this direction that other, more advanced users are left out. I’m talking about the programming API-s that enable third-party developers to create
+more advanced camera applications for the users that want more control over their photo-taking.</p>
+
+<p>The general idea is simple: ship a user-friendly camera application as part of the stock user-experience but give the users who want more the ability
+to install (buy) additional camera applications with advanced control. Since the camera components (sensor, camera controller) almost always have these
+additional features available (the higher-end devices most certainly use camera components that do) this should be a no-brainer for device/system software
+manufacturers. But, this is mostly not the case… One buys a Nexus 5 with a decent Sony IMX179 camera sensor only to find that he is unable to manually
+adjust the focus point (I am not talking about predefined autofocus presets), unable to manually adjust the ISO level and unable to manually adjust the
+exposure time (they give you the E-Z-mode “exposure compensation” which are some predefined hints to the underlying automatic ISO and exposure time
+selection mechanisms). Why can Nokia (for example) give their users this functionality and the almighty Google cannot? Is it because if you are prevented
+from being able to set two generations of a device to the same ISO and exposure time you cannot really see the actual improvements in camera hardware?
+Their automatic post-processing methods can, for example, make the overall resulting photo look brighter on the newer device and voila: “New Nexus 5 has
+much better low-light performance compared to Nexus 4” headlines everywhere. I’m simplifying things a bit, but you can get what I’m trying to say. There
+are multiple interests from their part to take this kind of approach.</p>
+
+<p>But, is there light at the end of the tunnel after all? Will Google redeem itself in the future? KitKat was originally a target for a new camera API that
+could change the game for Android. The new version of the API will supposedly give developers more control over photo-producing processes. By being given
+low-level access to camera features and the ability to capture raw, unprocessed, frames, developers are able to put the multiple cores available on today’s
+devices to good use. Third-party camera applications that give the user full, manual control over camera parameters and use custom computational-photography
+techniques should be possible. But, this all again goes to waste if vendors don’t give you access to certain parameters (like the Nexus 5’s ISO control)…</p>
+
+<p>I was really impressed with the control Nokia gives you on their (event lower-end) phones. Here’s hoping that the new camera API really changes the status
+quo on Android and pushes it to the top of respectable mobile photography charts.</p>
+
+</div>
+
+        <footer class='entry-footer'>
+  <span class='posted-on'>
+    Last edited on
+    <time class='date'>February 16, 2014</time>
+  </span>
+</footer>
+    </article>
+</main>
+
+        <footer class="content-info">
+            <hr>
+            <div class="container">
+                <section class="left">
+                    Content © <a href="mailto:mihovilic@gmail.com">map[]</a> 2017. All Rights Reserved.
+            	</section>
+                <section class="right">
+                    <a href=" http://www.mihasoftware.com/index.xml "><i class="fa fa-rss-square"></i> News feed</a>
+            	</section>
+            </div>
+        </footer>
+        <script src="/js/menu.js"></script>
+    </body>
+</html>
+

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://www.mihasoftware.com/about/</loc>
+    <lastmod>2017-08-02T20:20:36+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.mihasoftware.com/photos/</loc>
+    <lastmod>2016-02-09T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.mihasoftware.com/posts/</loc>
+    <lastmod>2016-02-09T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.mihasoftware.com/apps/photo-resize/</loc>
+    <lastmod>2016-02-09T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.mihasoftware.com/</loc>
+    <lastmod>2016-02-09T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.mihasoftware.com/apps/</loc>
+    <lastmod>2015-05-09T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.mihasoftware.com/apps/analyzed/</loc>
+    <lastmod>2014-05-04T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.mihasoftware.com/posts/analyzed-windows-64/</loc>
+    <lastmod>2014-05-04T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.mihasoftware.com/posts/android-runtime/</loc>
+    <lastmod>2014-02-16T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.mihasoftware.com/posts/photo-section/</loc>
+    <lastmod>2014-02-16T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.mihasoftware.com/apps/audio-analyzer/</loc>
+    <lastmod>2014-02-03T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.mihasoftware.com/apps/kurve/</loc>
+    <lastmod>2014-02-03T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.mihasoftware.com/posts/initial-content/</loc>
+    <lastmod>2014-02-02T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.mihasoftware.com/posts/hello-world/</loc>
+    <lastmod>2014-02-01T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.mihasoftware.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mihasoftware.com/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

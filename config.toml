@@ -1,8 +1,0 @@
-baseURL = "http://www.mihasoftware.com"
-languageCode = "en-us"
-title = "Miha Software"
-
-[params]
-dateFormat = "January 2, 2006"
-email = "mihovilic@gmail.com"
-copyrightYear = 2017

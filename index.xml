@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Welcome on Miha Software</title>
+    <link>http://www.mihasoftware.com/</link>
+    <description>Recent content in Welcome on Miha Software</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Feb 2016 00:00:00 +0200</lastBuildDate>
+    
+	<atom:link href="http://www.mihasoftware.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>http://www.mihasoftware.com/about/</link>
+      <pubDate>Wed, 02 Aug 2017 20:20:36 +0200</pubDate>
+      
+      <guid>http://www.mihasoftware.com/about/</guid>
+      <description>My name is Marko Mihovilić and I’m a 30-year-old software engineer living and working in Zagreb, Croatia (some of you might be looking at the map and thinking “where in the hell is this”, but believe me, its much nicer here than hell, just give it a chance :)).
+As my twitter profile nicely puts it: “Web and mobile developer by day, wannabe game/graphics developer by night. Loves tinkering with things to find out how they work.</description>
+    </item>
+    
+    <item>
+      <title>Mobile Photography</title>
+      <link>http://www.mihasoftware.com/photos/</link>
+      <pubDate>Tue, 09 Feb 2016 00:00:00 +0200</pubDate>
+      
+      <guid>http://www.mihasoftware.com/photos/</guid>
+      <description>I like taking photos, especially since these days you can have a decent camera at hand all the time. It might be because there’s a scene with a nice combination of colors, other times it might be a chance to do a mini-benchmark for a new phone camera/software feature. So, here are some of my photos that I’ve found interesting for some reason or just looking really nice.
+They were all taken with a mobile phone, the most recent ones with a Nexus 5, others with a Nexus 4 or the Galaxy Nexus.</description>
+    </item>
+    
+    <item>
+      <title>Photo Resize</title>
+      <link>http://www.mihasoftware.com/apps/photo-resize/</link>
+      <pubDate>Tue, 09 Feb 2016 00:00:00 +0200</pubDate>
+      
+      <guid>http://www.mihasoftware.com/apps/photo-resize/</guid>
+      <description>Photo Resize is a simple sharing extension for Android which helps you send photos via email or messaging more quickly. It creates a temporary smaller version of your photo before you send it so that you don’t have to send the full couple of megabytes of a 8MP photo via email.
+You can find and follow Photo Resize on Google+.
+Download The extension can be found on the Google Play by clicking the following link:</description>
+    </item>
+    
+    <item>
+      <title>Analyzed</title>
+      <link>http://www.mihasoftware.com/apps/analyzed/</link>
+      <pubDate>Sun, 04 May 2014 00:00:00 +0200</pubDate>
+      
+      <guid>http://www.mihasoftware.com/apps/analyzed/</guid>
+      <description>Analyzed is a simple plugin for Windows Media Player written to be compact and minimalistic. It is a upgrade to the old Barr plugin which is not supported anymore.
+It was tested and is working on Windows Media Player 10, 11 and 12 (both 32-bit and 64-bit versions). It should work on older versions of the player but you might encounter problems like error messages appearing after you try to close Windows Media Player so I suggest that you upgrade to one of the tested versions if you haven’t already.</description>
+    </item>
+    
+    <item>
+      <title>Analyzed for Windows 64-bit</title>
+      <link>http://www.mihasoftware.com/posts/analyzed-windows-64/</link>
+      <pubDate>Sun, 04 May 2014 00:00:00 +0200</pubDate>
+      
+      <guid>http://www.mihasoftware.com/posts/analyzed-windows-64/</guid>
+      <description>I’ve finally dug-up the source-code for the Analyzed Windows Media Player plugin from my old Windows PC and managed to open it in Visual Studio 2013. The last modified file was from 2007 :) It’s been 7 years, and the original was writen when I was just starting my first year of college.
+I was amazed to see the old Visual Studio 2005 project open up without issues in the latest 2015 IDE and compile without any errors with the newest toolset.</description>
+    </item>
+    
+    <item>
+      <title>Android&#39;s New Runtime</title>
+      <link>http://www.mihasoftware.com/posts/android-runtime/</link>
+      <pubDate>Sun, 16 Feb 2014 00:00:00 +0200</pubDate>
+      
+      <guid>http://www.mihasoftware.com/posts/android-runtime/</guid>
+      <description>There has been a lot of talk recently about Google’s new ART runtime for Android which debuted with the recent Android 4.4 update. ART (which stands for Android Runtime) means to replace Dalvik, the current runtime on top of which (most) Android applications execute. Dalvik has been a part of Android since the beginning, being one of the core components of the whole operating system.
+As user applications on Android are meant to be written in Java (see Google having issues with Oracle about this), the runtime is the component which runs the compiled Java applications on the device and connects them with the rest of the operating system (applications are not much fun by themselves if they do not use the graphics system to display user interfaces, the networking system to send and receive data etc).</description>
+    </item>
+    
+    <item>
+      <title>Photography Section</title>
+      <link>http://www.mihasoftware.com/posts/photo-section/</link>
+      <pubDate>Sun, 16 Feb 2014 00:00:00 +0200</pubDate>
+      
+      <guid>http://www.mihasoftware.com/posts/photo-section/</guid>
+      <description>Last week I found some time to add a Photography section to the site. I take lots of photos with my mobile phone and some of them turn out to be really cool or interesting. I’ll try to put up some of these photos with a small description of why I thought the particular photo was worth sharing.
+I’m really interested in improvements to the core photography experience on Android. Ever since the iPhone 4 and it’s remarkably good camera raised the bar, more and more casual photographers are moving to the mobile world.</description>
+    </item>
+    
+    <item>
+      <title>Audio Analyzer</title>
+      <link>http://www.mihasoftware.com/apps/audio-analyzer/</link>
+      <pubDate>Mon, 03 Feb 2014 00:00:00 +0200</pubDate>
+      
+      <guid>http://www.mihasoftware.com/apps/audio-analyzer/</guid>
+      <description>Audio Analyzer is an audio visualization application which you can use to make listening to music more interesting. It renders various visualizations in accordance to playing sounds.
+Download Download Audio Analyzer version 2.7.0 and extract it using your favorite archiver.
+Screenshots    Two screenshots showing Audio Analyzer in action.
+Configuration Open the provided ReadMe.htm for more information.</description>
+    </item>
+    
+    <item>
+      <title>Kurve</title>
+      <link>http://www.mihasoftware.com/apps/kurve/</link>
+      <pubDate>Mon, 03 Feb 2014 00:00:00 +0200</pubDate>
+      
+      <guid>http://www.mihasoftware.com/apps/kurve/</guid>
+      <description>Kurve is a simple Windows multiplayer game you can play with your friends. The objective is to stay alive for as long as you can.
+Download Download Kurve version 1.0.0 and extract it using your favorite archiver.
+Controls Press Space to start a game after all players have joined by pressin their left key. Space continues after all players die/the game ends. Pause pauses/unpauses the game.
+Red player: Left Arrow for left, Right Arrow for right.</description>
+    </item>
+    
+    <item>
+      <title>Initial Content Migrated</title>
+      <link>http://www.mihasoftware.com/posts/initial-content/</link>
+      <pubDate>Sun, 02 Feb 2014 00:00:00 +0200</pubDate>
+      
+      <guid>http://www.mihasoftware.com/posts/initial-content/</guid>
+      <description>For starters, I’ve tweaked the site theme to my liking and I’ve transferred all the old content to the new site. I’ll be gradually adding new content to the site over time, starting with my newer applications like Photo Resize and some yet unreleased ones :) Stay tuned!</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>http://www.mihasoftware.com/posts/hello-world/</link>
+      <pubDate>Sat, 01 Feb 2014 00:00:00 +0200</pubDate>
+      
+      <guid>http://www.mihasoftware.com/posts/hello-world/</guid>
+      <description>I’ve finally taken the time to arrange a dedicated web server and created a more professional and comprehensive website. There will still be some ongoing effort to improve the design and content so do not perceive this as complete yet. If you find something missing/not quite right or otherwise have any useful suggestions, please give me a call (oh, and that’s in the Internet sense of things, actually calling me on the phone would be really weird :)).</description>
+    </item>
+    
+  </channel>
+</rss>
