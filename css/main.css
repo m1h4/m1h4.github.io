@@ -360,10 +360,10 @@ footer.content-info a:hover {
 
 footer span.posted-on:before {
     font-family: FontAwesome;
-    font-weight: 400;
+    /*font-weight: 400;*/
     font-style: normal;
     text-decoration: inherit;
-    content: ""
+    content: " "
 }
 
 hr {
