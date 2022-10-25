@@ -231,11 +231,12 @@ header.banner .nav-primary ul {
 
 header.banner .nav-primary ul li {
     text-transform: lowercase;
+    padding: 5px 0 5px 0;
     margin: 0 10px 0 10px
 }
 
 header.banner .nav-primary ul li li {
-    padding: 0;
+    padding: 5px 0 5px 0;
     margin: 0 30px 0 5px
 }
 
