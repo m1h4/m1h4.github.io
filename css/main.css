@@ -3,12 +3,15 @@ body {
     color: #ccc;
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 1em;
-    line-height: 1.5em;
     font-weight: 300;
     max-width: 1000px;
     padding: 10px 10px 10px 10px;
     margin: 0 auto !important;
     float: none !important;
+}
+
+p {
+    line-height: 1.5em;
 }
 
 b, strong {
