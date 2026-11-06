@@ -233,3 +233,14 @@ hr { border: 0; border-top: 1px solid var(--line); }
 .events-preview img { border: 1px solid var(--line); border-radius: 12px; }
 .events-preview figcaption { margin-top: 12px; }
 .events-contact { border-top: 1px solid var(--line); margin-top: 48px; padding-top: 24px; font-size: .9rem; overflow-wrap: anywhere; }
+
+/* Photo Resize pages share the portfolio's typography and appearance controls. */
+.photo-resize-navigation { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; margin-bottom: 42px; }
+.photo-resize-navigation a { display: inline-flex; align-items: center; gap: 12px; min-height: 48px; }
+.photo-resize-brand { font-weight: 650; color: var(--text); text-decoration: none; margin-right: auto; }
+.photo-resize-brand img { border-radius: 10px; }
+.photo-resize-navigation [aria-current] { text-decoration-thickness: 2px; }
+.photo-resize-preview { width: min(100%, 360px); margin-block: 36px; }
+.photo-resize-preview img { border: 1px solid var(--line); border-radius: 12px; }
+.photo-resize-preview figcaption { margin-top: 12px; }
+.photo-resize-contact { border-top: 1px solid var(--line); margin-top: 48px; padding-top: 24px; font-size: .9rem; overflow-wrap: anywhere; }

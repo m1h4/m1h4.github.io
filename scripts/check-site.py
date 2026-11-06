@@ -158,7 +158,7 @@ def main():
     catalogue = documents.get(directory / "apps/index.html")
     if catalogue is not None:
         cards = catalogue.findall(".//a[@class='card-link']")
-        app_routes = {route for route in contract["pages"] if route.startswith("/apps/") and route != "/apps/"}
+        app_routes = {route for route in contract["pages"] if route.startswith("/apps/") and len(route.strip("/").split("/")) == 2}
         require({card.get("href") for card in cards} == app_routes,
                 "App catalogue must include every app")
     for slug, filename in (("analyzed", "Analyzed.exe"), ("audio-analyzer", "AudioAnalyzer.zip"), ("kurve", "kurve.zip")):
