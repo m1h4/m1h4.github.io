@@ -1,32 +1,15 @@
 {{ partial "header" . }}
-
-<main id='main-content' class='main'>
-    <article class='entry'>
-        {{ partial "entry/header" . }}
-
-        {{ .Content }}
-
+<main id="main-content" class="main shell">
+    <header class="page-heading"><p class="eyebrow">Notes & ideas</p><h1>{{ .Title }}</h1><p class="lead">{{ .Description }}</p></header>
+    <div class="post-list">
         {{ range .RegularPages.ByDate.Reverse }}
-            <article class="post">
-                <header>
-                    <h2 class="entry-title">
-                        <a href="{{.Permalink}}">{{.Title}}</a>
-                        <time>{{ .Date.Format .Site.Params.dateFormat }}</time>
-                    </h2>
-                </header>
-                <div class="entry-summary">
-                    {{ .Summary }}
-                </div>
-                {{ if .Truncated }}
-                <footer>
-                    <a href="{{.Permalink}}">Read more…</a>
-                </footer>
-                {{end}}
-            </article>
+        <article>
+            <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format .Site.Params.dateFormat }}</time>
+            <div><h2><a href="{{ .RelPermalink }}">{{ .Title }} <span aria-hidden="true">↗</span></a></h2>
+                <p>{{ .Summary | plainify | htmlUnescape | truncate 190 }}</p>
+            </div>
+        </article>
         {{ end }}
-
-        {{ partial "entry/footer" . }}
-    </article>
+    </div>
 </main>
-
 {{ partial "footer" . }}

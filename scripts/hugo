@@ -33,4 +33,5 @@ if [[ ! -x "$tools_dir/hugo" ]]; then
 fi
 
 cd "$project_dir"
+export HUGO_CACHEDIR="${HUGO_CACHEDIR:-$project_dir/.cache/hugo-build}"
 exec "$tools_dir/hugo" "$@"

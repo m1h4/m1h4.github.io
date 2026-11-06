@@ -1,13 +1,9 @@
 {{ partial "header" . }}
-
-<main id='main-content' class='main'>
-    <article class='entry'>
-        {{ partial "entry/header" . }}
-
-        {{ .Content }}
-
-        {{ partial "entry/footer" . }}
-    </article>
+<main id="main-content" class="main shell">
+    <header class="page-heading"><p class="eyebrow">The collection</p><h1>{{ .Title }}</h1><div class="lead">{{ .Content }}</div></header>
+    <div class="app-grid catalogue-grid">
+        {{ range .RegularPages.ByWeight }}{{ partial "app-card" (dict "page" . "heading" "h2") }}{{ end }}
+    </div>
+    <p class="archive-note">These are historical projects, preserved with their original downloads and documentation. Compatibility with current operating systems has not been verified.</p>
 </main>
-
 {{ partial "footer" . }}

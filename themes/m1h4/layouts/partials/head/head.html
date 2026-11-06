@@ -23,13 +23,14 @@
 
     {{ hugo.Generator }}
 
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-
-    <link rel="stylesheet" href="/css/main.css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" id="google-fonts-css" href="https://fonts.googleapis.com/css?family=Merriweather+Sans%3A400%2C300%2C700%2C300italic%2C400italic%2C700italic&amp;ver=4.8" type="text/css" media="all">
+    <meta name="color-scheme" content="light dark">
+    <script>
+        try {
+            const appearance = localStorage.getItem('appearance');
+            if (appearance === 'light' || appearance === 'dark') document.documentElement.dataset.theme = appearance;
+        } catch (_) { /* Device preference remains available without storage. */ }
+    </script>
+    <link rel="stylesheet" href="/css/main.css?v={{ sha256 (readFile "themes/m1h4/static/css/main.css") | truncate 12 "" }}">
 
     <link rel="canonical" href="{{ .Permalink }}">
 

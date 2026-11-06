@@ -1,0 +1,25 @@
+{{ partial "header" . }}
+<main id="main-content" class="main shell">
+    <a class="back-link" href="/apps/">← All apps</a>
+    <article>
+        <header class="app-overview{{ if not .Params.screenshot }} without-screenshot{{ end }}">
+            <div>
+                <p class="eyebrow">{{ .Params.platform }} · {{ .Params.availability }}</p>
+                <h1>{{ .Title }}</h1>
+                <p class="lead">{{ .Description }}</p>
+                {{ with .Params.version }}<p class="version">Version {{ . }}</p>{{ end }}
+                {{ with .Params.download }}<a class="button download-button" href="{{ . }}" download>Download {{ $.Title }} <span aria-hidden="true">↓</span></a><p class="download-detail">{{ $.Params.downloadlabel }} · {{ $.Params.platform }}</p>{{ end }}
+                <p class="availability-note">{{ .Params.compatibility }}</p>
+            </div>
+            {{ with .Params.screenshot }}
+                {{ $image := resources.Get (strings.TrimPrefix "/" .) }}
+                <figure class="app-preview"><img src="{{ . }}" alt="{{ $.Params.screenshotalt }}" width="{{ $image.Width }}" height="{{ $image.Height }}" fetchpriority="high" decoding="async"></figure>
+            {{ end }}
+        </header>
+        <div class="app-documentation">
+            {{ if .Params.toc }}<aside class="table-of-contents" aria-label="On this page"><p class="eyebrow">On this page</p>{{ .TableOfContents }}</aside>{{ end }}
+            <div class="prose">{{ .Content }}</div>
+        </div>
+    </article>
+</main>
+{{ partial "footer" . }}

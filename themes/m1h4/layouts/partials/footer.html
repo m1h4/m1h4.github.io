@@ -1,17 +1,18 @@
-        <footer class="content-info">
-            <hr>
-            <div class="container">
-                <section class="left">
-                    Content © <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.author }}</a> {{ .Site.Params.copyrightYear }}. All Rights Reserved.
-                </section>
-                <section class="right">
-                    {{ with .Site.Home.OutputFormats.Get "rss" }}
-                    <a href="{{ .RelPermalink }}"><i class="fa fa-rss-square" aria-hidden="true"></i> News feed</a>
-                    {{ end }}
-                </section>
-            </div>
-        </footer>
-        <script src="/js/menu.js"></script>
-        {{ partial "footer/analytics" . }}
-    </body>
+<footer class="content-info shell">
+    <div><a class="footer-name" href="/">{{ .Site.Title }}</a><p>Apps, experiments, and things along the way.</p></div>
+    <div class="footer-links">
+        <a href="mailto:{{ .Site.Params.email }}">Contact</a>
+        <a href="https://github.com/m1h4">GitHub</a>
+        {{ with .Site.Home.OutputFormats.Get "rss" }}<a href="{{ .RelPermalink }}">RSS feed</a>{{ end }}
+    </div>
+    <label class="appearance-control" hidden>Appearance
+        <select id="appearance" aria-label="Appearance">
+            <option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option>
+        </select>
+    </label>
+    <small>© {{ now.Year }} {{ .Site.Params.author }}</small>
+</footer>
+<script src="/js/site.js?v={{ sha256 (readFile "themes/m1h4/static/js/site.js") | truncate 12 "" }}" defer></script>
+{{ partial "footer/analytics" . }}
+</body>
 </html>
