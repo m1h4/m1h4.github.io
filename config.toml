@@ -15,7 +15,7 @@ target = "assets"
 
 [params]
 dateFormat = "January 2, 2006"
-email = "mihovilic@gmail.com"
+email = "support@mihasoftware.com"
 copyrightYear = 2022
 tagline = "Software Development by Marko Mihovilić"
 author = "Marko Mihovilić"
