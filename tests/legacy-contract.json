@@ -9,6 +9,11 @@
     "/apps/events/",
     "/apps/kurve/",
     "/apps/photo-resize/",
+    "/apps/photo-resize/hr/",
+    "/apps/photo-resize/privacy/",
+    "/apps/photo-resize/privacy/hr/",
+    "/apps/photo-resize/support/",
+    "/apps/photo-resize/support/hr/",
     "/events/",
     "/events/index-hr.html",
     "/events/privacy-hr.html",
@@ -70,12 +75,18 @@
     "screenshots/PhotoResize2.png": "2b5b1649c8d7e1d1c38465aea02b1b64af827f724d55c16a78e6341942f821ec"
   },
   "analytics_excluded": [
+    "/apps/events/",
+    "/apps/photo-resize/",
+    "/apps/photo-resize/hr/",
+    "/apps/photo-resize/privacy/",
+    "/apps/photo-resize/privacy/hr/",
+    "/apps/photo-resize/support/",
+    "/apps/photo-resize/support/hr/",
     "/events/",
     "/events/index-hr.html",
-    "/events/privacy.html",
     "/events/privacy-hr.html",
-    "/events/support.html",
+    "/events/privacy.html",
     "/events/support-hr.html",
-    "/apps/events/"
+    "/events/support.html"
   ]
 }

@@ -41,7 +41,7 @@ The build job has read-only repository permissions. Only the production deployme
 
 ## Analytics
 
-Cloudflare Web Analytics uses the public beacon identifier in `config.toml`. Events landing, privacy, support, and catalogue pages opt out with `noAnalytics: true`; their routes are recorded in `tests/legacy-contract.json`. Elsewhere it is included only in production builds and is always excluded by `hugo server`, including when the server uses the production environment. Use the test environment for static previews. Cloudflare automatic injection is disabled; DNS and hosting remain on the existing setup.
+Cloudflare Web Analytics uses the public beacon identifier in `config.toml`. Events and Photo Resize landing, privacy, support, and catalogue pages opt out with `noAnalytics: true`; their routes are recorded in `tests/legacy-contract.json`. Elsewhere it is included only in production builds and is always excluded by `hugo server`, including when the server uses the production environment. Use the test environment for static previews. Cloudflare automatic injection is disabled; DNS and hosting remain on the existing setup.
 
 [Open Web Analytics](https://dash.cloudflare.com/e2ea5e5904a6618a6f0363269c888fdf/web-analytics) to view the `www.mihasoftware.com` site. The service reports visits and pageviews, has six months of accessible history, and does not count custom download events. Browser blockers may suppress measurements. The previous GA4 account and historical data are retained, but this site no longer sends GA4 events.
 
@@ -63,3 +63,9 @@ Normal rollback after subsequent changes is a revert PR followed by the standard
 `content/events/` contains the English and Croatian landing, privacy and support pages. Keep `/events/`, `/events/index-hr.html`, `/events/privacy.html`, `/events/privacy-hr.html`, `/events/support.html` and `/events/support-hr.html` stable: the Android app uses these URLs. The shared Events layout is `themes/m1h4/layouts/events.html`; screenshots and the icon are in `static/events/` and contain only fictional calendar data. Update the existing page when editing either translation, and preserve the same-page language links.
 
 The catalogue entry is `content/apps/events.md`. The app is still preparing for release; add its verified Google Play link only when published. Support uses `support@mihasoftware.com`. Changes deploy through the normal pull-request and Actions workflow.
+
+## Photo Resize release pages
+
+The catalogue/English landing page is `content/apps/photo-resize.md`. Its Croatian translation, bilingual privacy policy, and support pages are in `content/photo-resize/`, with a non-rendered section index. Preserve `/apps/photo-resize/`, `/apps/photo-resize/hr/`, `/apps/photo-resize/privacy/`, `/apps/photo-resize/privacy/hr/`, `/apps/photo-resize/support/` and `/apps/photo-resize/support/hr/`; the Android app already links to the privacy URLs. These pages opt out of analytics. The shared layout is `themes/m1h4/layouts/photo-resize.html`; actual app captures and the icon are in `static/photo-resize/`. The photograph is synthetic demo content.
+
+The rebuilt app is in internal testing; add its public Google Play link only after availability is verified. Support remains `mihovilic@gmail.com`, matching the app. Original archived screenshots and their URLs remain intact.

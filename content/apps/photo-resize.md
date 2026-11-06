@@ -1,28 +1,48 @@
----
-title: "Photo Resize"
-date: 2016-02-09T00:00:00+02:00
-description: "Smaller photos, simpler sharing. An Android extension that resizes pictures before you send them."
-platform: "Android"
-availability: "Unavailable"
-compatibility: "The original Google Play listing is unavailable. Screenshots and documentation are preserved here as an archive."
-screenshot: "/screenshots/PhotoResize1.png"
-screenshotalt: "Photo Resize picture-size selection dialog on Android"
-featured: false
-weight: 4
----
+{
+  "title": "Photo Resize",
+  "description": "Smaller photo attachments for emails and messages. Free, private, and offline.",
+  "date": "2016-02-09T00:00:00+02:00",
+  "url": "/apps/photo-resize/",
+  "layout": "photo-resize",
+  "language": "en",
+  "alternate": "/apps/photo-resize/hr/",
+  "noAnalytics": true,
+  "outputs": [
+    "HTML"
+  ],
+  "eyebrow": "PHOTO RESIZE · ANDROID 10+",
+  "headline": "A lighter way to share.",
+  "lastmod": "2026-11-06T00:00:00+01:00",
+  "platform": "Android 10+",
+  "availability": "Internal testing",
+  "compatibility": "The modernized app is in internal testing. Public Google Play availability is pending.",
+  "screenshot": "/photo-resize/en-US-02-sizes.png",
+  "screenshotalt": "Photo Resize sharing options on modern Android",
+  "featured": false,
+  "weight": 4,
+  "cardaction": "Explore Photo Resize"
+}
 
-**Photo Resize** is a simple sharing extension for **Android** which helps you send photos via email or
-messaging more quickly. It creates a temporary smaller version of your photo before you send it so
-that you don’t have to send the full couple of megabytes of a 8MP photo via email.
+Make a smaller copy of a photo for emails and messages. Your original stays just as it is.
 
-## Download
+Photo Resize is a free, offline Android utility. The rebuilt version is in internal testing; the public Google Play listing is not yet available.
 
-The original Google Play listing is currently unavailable. This page and its screenshots remain as an archive of the application.
+## Choose, resize, share
 
-## Screenshots
+Open Photo Resize and choose one photo with Android’s photo picker. Or tap Share in your gallery and choose Photo Resize.
 
-The following screenshots show Photo-Resize displaying multiple picture size choices with a file size preview:
+Pick Small (1000 px), Medium (1600 px), or Large (2400 px). These limits apply to the longest edge; smaller images are never enlarged. See the actual encoded file size before sharing through Android’s familiar sharing menu. File-size savings depend on the image and format.
 
-{{< figure src="/screenshots/PhotoResize1.png" alt="Photo Resize picture-size selection dialog" width="385" height="684" loading="lazy" >}}
+## Your original stays yours
 
-{{< figure src="/screenshots/PhotoResize2.png" alt="Photo Resize picture-size selection with a file-size preview" width="386" height="683" loading="lazy" >}}
+Resizing creates temporary copies in private app storage. The original remains unchanged. Resized copies omit location and other source photo metadata; choosing Original preserves the complete original file and its metadata. Temporary copies are removed on later launches after 24 hours of inactivity, and Android may clear them sooner.
+
+The app has no accounts, advertising, analytics, or network permission. The app you deliberately share to handles the copy under its own policy. Transparent images keep their transparency; animated images are shared unchanged.
+
+## At home on Android
+
+Light and dark themes, system colors on supported devices, adaptive phone and tablet layouts, and English and Croatian. Requires Android 10 or newer.
+
+{{< figure src="/photo-resize/en-US-02-sizes.png" alt="Photo Resize showing a synthetic coastal photo, original dimensions, and smaller sharing options with actual file sizes." width="1080" height="1920" loading="lazy" class="photo-resize-preview" caption="Actual app screenshot with a synthetic sample photo." >}}
+
+[Help and support](/apps/photo-resize/support/) · [Privacy policy](/apps/photo-resize/privacy/) · [Hrvatski](/apps/photo-resize/hr/)
