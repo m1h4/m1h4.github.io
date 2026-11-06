@@ -1,0 +1,38 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{ $title := .Site.Title }}
+    {{ if not .IsHome }}{{ $title = printf "%s | %s" .Title .Site.Title }}{{ end }}
+    {{ $description := .Description | default (.Summary | plainify | htmlUnescape | strings.TrimSpace | truncate 160) | default .Site.Params.description }}
+    <title>{{ $title }}</title>
+    <meta name="description" content="{{ $description }}">
+    <meta property="og:title" content="{{ $title }}">
+    <meta property="og:description" content="{{ $description }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    <meta property="og:type" content="{{ if and .IsPage (eq .Section "posts") }}article{{ else }}website{{ end }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ $title }}">
+    <meta name="twitter:description" content="{{ $description }}">
+    {{ if eq .Kind "404" }}<meta name="robots" content="noindex">{{ end }}
+    {{ with .Site.Home.OutputFormats.Get "rss" }}
+    <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .RelPermalink }}">
+    {{ end }}
+
+    {{ hugo.Generator }}
+  
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" id="google-fonts-css" href="https://fonts.googleapis.com/css?family=Merriweather+Sans%3A400%2C300%2C700%2C300italic%2C400italic%2C700italic&amp;ver=4.8" type="text/css" media="all">
+
+    <link rel="canonical" href="{{ .Permalink }}">
+
+    {{ partial "head/includes" . }}
+
+</head>

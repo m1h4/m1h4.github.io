@@ -1,0 +1,13 @@
+{{ partial "header" . }}
+
+<main id='main-content' class='main'>
+    <article class='entry'>
+        {{ partial "entry/header" . }}
+
+        {{ .Content }}
+
+        {{ partial "entry/footer" . }}
+    </article>
+</main>
+
+{{ partial "footer" . }}

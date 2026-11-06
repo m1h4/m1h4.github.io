@@ -1,0 +1,22 @@
+<button id="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="main-navigation" aria-expanded="false"></button>
+<nav id="main-navigation" class="nav-primary" aria-label="Main navigation">
+    <div class="menu-main-menu-container">
+        <ul class="nav">
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.main }}
+            <li class="menu-item{{ if .HasChildren }} menu-item-has-children{{ end }}{{ if $currentPage.IsMenuCurrent "main" . }} current-menu-item{{ end }}">
+                <a href="{{ .URL }}"{{ if $currentPage.IsMenuCurrent "main" . }} aria-current="page"{{ end }}><i class="{{ .Pre }}" aria-hidden="true"></i> {{ .Name }}</a>
+                {{ if .HasChildren }}
+                <ul class="sub-menu">
+                    {{ range .Children }}
+                    <li class="menu-item{{ if $currentPage.IsMenuCurrent "main" . }} current-menu-item{{ end }}">
+                        <a href="{{ .URL }}"{{ if $currentPage.IsMenuCurrent "main" . }} aria-current="page"{{ end }}><i class="{{ .Pre }}" aria-hidden="true"></i> {{ .Name }}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+</nav>

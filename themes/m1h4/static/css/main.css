@@ -1,0 +1,396 @@
+body {
+    background-color: rgb(14, 14, 15);
+    color: #ccc;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 300;
+    max-width: 1000px;
+    padding: 10px 10px 10px 10px;
+    margin: 0 auto !important;
+    float: none !important;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+b, strong {
+    font-weight: 700;
+    color: #fff
+}
+
+/* hack for making images float */
+img[src$='#floatright'] {
+	float:right;
+}
+
+main em, main i {
+    color: #fff
+}
+
+a {
+    color: #3899db;
+    text-decoration: none;
+    /*font-weight: 400*/
+}
+
+h1, h2, h3 {
+    font-weight: 700
+}
+
+@media only screen and (min-width:600px) {
+    div.sidelinks {
+        float: right;
+        width: 20%;
+    }
+}
+
+div.sidelinks h3 {
+    font-size: 0.7em;
+    color: #555;
+}
+
+div.sidelinks ul {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 3em;
+}
+
+div.sidelinks a {
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+div.sidelinks a:hover {
+    color: #eee;
+}
+
+@media only screen and (min-width:600px) {
+    article.entry.left {
+        float: left;
+        width: 70%;
+    }
+}
+
+article {
+    margin-bottom: 50px;
+}
+
+article header time {
+    float: right;
+    font-size: 0.7em;
+    color: rgba(204, 204, 204, .5)
+}
+
+article footer {
+    margin-top: 0.8em;
+}
+
+article header .entry-title {
+    margin-top: .8em;
+    margin-bottom: .4em;
+}
+
+article header .entry-title a {
+    color: #ccc
+}
+
+article header .entry-title a:hover {
+    color: rgba(204, 204, 204, .75)
+}
+
+figure {
+    margin: 10px 10px 10px 10px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+figcaption h4 {
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: .8em;
+    font-weight: 300;
+    color: rgba(204, 204, 204, .75)
+}
+
+figcaption h4:before {
+    font-family: FontAwesome;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: inherit;
+    content: "";
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+@media only screen and (min-width:601px) {
+    header.banner {
+        margin: 50px 0 20px 0
+    }
+}
+
+header.banner hr {
+    clear: both;
+    margin: 0
+}
+
+header.banner .brand {
+    font-weight: 400;
+    text-transform: lowercase;
+    color: rgb(225, 113, 29)
+}
+
+header.banner .brand:before {
+    font-family: FontAwesome;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: inherit;
+    content: " "
+}
+
+header.banner .brand:hover {
+    color: rgba(225, 113, 29, .75)
+}
+
+@media only screen and (min-width:601px) {
+    header.banner .brand {
+        font-size: 2.5em
+    }
+}
+
+@media only screen and (max-width:600px) {
+    header.banner .brand {
+        font-size: 2em
+    }
+}
+
+header.banner .tagline {
+    color: rgba(204, 204, 204, .4);
+    font-weight: 300;
+    text-transform: lowercase
+}
+
+@media only screen and (min-width:601px) {
+    header.banner .tagline {
+        font-size: .8em;
+        margin-left: 55px
+    }
+}
+
+@media only screen and (max-width:600px) {
+    header.banner .tagline {
+        font-size: .7em;
+        margin-left: 35px
+    }
+}
+
+header.banner #menu-toggle {
+    display: none;
+    float: right;
+    color: #ccc;
+    background-color: transparent;
+    border: none;
+    font-size: 1.6em;
+    margin-top: 4px
+}
+
+header.banner #menu-toggle:before {
+    font-family: FontAwesome;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: inherit;
+    content: ""
+}
+
+header.banner #menu-toggle:hover {
+    color: rgba(204, 204, 204, .75)
+}
+
+@media only screen and (min-width:601px) {
+    header.banner #menu-toggle {
+        display: none
+    }
+}
+
+@media only screen and (max-width:600px) {
+    html.js header.banner #menu-toggle {
+        display: block
+    }
+}
+
+header.banner .nav-primary {
+    font-weight: 700;
+    font-size: 1.1em
+}
+
+header.banner .nav-primary ul {
+    margin: 0
+}
+
+header.banner .nav-primary ul li {
+    text-transform: lowercase;
+    padding: 5px 0 5px 0;
+    margin: 0 10px 0 10px
+}
+
+header.banner .nav-primary ul li li {
+    padding: 5px 0 5px 0;
+    margin: 0 30px 0 5px
+}
+
+header.banner .nav-primary ul .current-menu-item > a {
+    color: #ccc;
+    font-weight: 700
+}
+
+header.banner .nav-primary ul a {
+    color: rgba(204, 204, 204, .75)
+}
+
+header.banner .nav-primary ul a:hover {
+    color: #ccc
+}
+
+@media only screen and (min-width:601px) {
+    header.banner .nav-primary {
+        float: right
+    }
+
+    header.banner .nav-primary ul {
+        overflow: hidden;
+        padding: 20px 0 4px 0
+    }
+
+    header.banner .nav-primary ul li {
+        display: inline-block
+    }
+
+    header.banner .nav-primary ul .menu-item-has-children {
+        display: inline-block
+    }
+
+    header.banner .nav-primary ul .menu-item-has-children ul.sub-menu {
+        display: none;
+        position: absolute;
+        background-color: #cbcbcb;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
+        min-width: 160px;
+        padding: 0
+    }
+
+    header.banner .nav-primary ul .menu-item-has-children ul.sub-menu li {
+        padding: 10px 10px;
+        text-decoration: none;
+        display: block
+    }
+
+    header.banner .nav-primary ul .menu-item-has-children ul.sub-menu li a {
+        color: #333
+    }
+
+    header.banner .nav-primary ul .menu-item-has-children ul.sub-menu li a:hover {
+        color: rgba(51, 51, 51, .375)
+    }
+
+    header.banner .nav-primary ul .menu-item-has-children:hover ul.sub-menu,
+    header.banner .nav-primary ul .menu-item-has-children:focus-within ul.sub-menu {
+        display: block
+    }
+}
+
+@media only screen and (max-width:600px) {
+    html.js header.banner .nav-primary {
+        display: none
+    }
+
+    html.js header.banner .nav-primary.visible {
+        display: block
+    }
+
+    header.banner .nav-primary ul {
+        list-style-type: none;
+        padding: 0
+    }
+
+    header.banner .nav-primary ul li {
+        padding: 3px
+    }
+
+    header.banner .nav-primary ul li li {
+        padding-left: 9px
+    }
+}
+
+a:hover {
+    color: rgba(46, 127, 179, .75)
+}
+
+a:focus-visible, button:focus-visible {
+    outline: 2px solid #3899db;
+    outline-offset: 4px;
+}
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    padding: 10px;
+    background: #0e0e0f;
+    z-index: 2;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+footer.entry-footer {
+    font-size: .8em;
+    color: rgba(204, 204, 204, .3);
+    float: right;
+    font-weight: 300
+}
+
+footer.content-info {
+    padding: 10px 0 15px 0;
+    clear: both;
+    font-size: .75em;
+    color: rgba(204, 204, 204, .4);
+    font-weight: 300
+}
+
+footer.content-info div.container {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+footer.content-info div.container section.left {
+    float: left;
+}
+
+footer.content-info div.container section.right {
+    float: right;
+}
+
+footer.content-info a {
+    color: #ccc
+}
+
+footer.content-info a:hover {
+    color: rgba(204, 204, 204, .75)
+}
+
+footer span.posted-on:before {
+    font-family: FontAwesome;
+    /*font-weight: 400;*/
+    font-style: normal;
+    text-decoration: inherit;
+    content: " "
+}
+
+hr {
+    height: 1px;
+    border: none;
+    background-color: rgba(204, 204, 204, .4);
+}

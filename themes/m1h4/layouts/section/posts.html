@@ -1,0 +1,32 @@
+{{ partial "header" . }}
+
+<main id='main-content' class='main'>
+    <article class='entry'>
+        {{ partial "entry/header" . }}
+
+        {{ .Content }}
+
+        {{ range .RegularPages.ByDate.Reverse }}
+            <article class="post">
+                <header>
+                    <h2 class="entry-title">
+                        <a href="{{.Permalink}}">{{.Title}}</a>
+                        <time>{{ .Date.Format .Site.Params.dateFormat }}</time>
+                    </h2>
+                </header>
+                <div class="entry-summary">
+                    {{ .Summary }}
+                </div>
+                {{ if .Truncated }}
+                <footer>
+                    <a href="{{.Permalink}}">Read more…</a>
+                </footer>
+                {{end}}
+            </article>
+        {{ end }}
+
+        {{ partial "entry/footer" . }}
+    </article>
+</main>
+
+{{ partial "footer" . }}
