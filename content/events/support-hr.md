@@ -36,4 +36,3 @@ Pišite na [support@mihasoftware.com](mailto:support@mihasoftware.com) i navedit
 
 
 [Pravila privatnosti](/events/privacy-hr.html)
-
