@@ -221,3 +221,15 @@ hr { border: 0; border-top: 1px solid var(--line); }
     .home-intro h1 { font-size: 3.4rem; }
     .section-heading { display: block; }
 }
+
+/* Events pages keep the site's typography, appearance control and focus styles. */
+.events-navigation { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; margin-bottom: 42px; }
+.events-navigation a { display: inline-flex; align-items: center; gap: 12px; min-height: 48px; }
+.events-brand { font-weight: 650; color: var(--text); text-decoration: none; margin-right: auto; }
+.events-brand img { border-radius: 10px; }
+.events-navigation [aria-current] { text-decoration-thickness: 2px; }
+.events-content { max-width: 68ch; }
+.events-preview { width: min(100%, 360px); margin-block: 36px; }
+.events-preview img { border: 1px solid var(--line); border-radius: 12px; }
+.events-preview figcaption { margin-top: 12px; }
+.events-contact { border-top: 1px solid var(--line); margin-top: 48px; padding-top: 24px; font-size: .9rem; overflow-wrap: anywhere; }

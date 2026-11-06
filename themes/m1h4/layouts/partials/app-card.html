@@ -15,7 +15,7 @@
             <div class="card-meta"><span>{{ .Params.platform }}</span><span>{{ .Params.availability }}</span></div>
             {{ if eq $heading "h2" }}<h2>{{ .Title }} <span aria-hidden="true">↗</span></h2>{{ else }}<h3>{{ .Title }} <span aria-hidden="true">↗</span></h3>{{ end }}
             <p>{{ .Description }}</p>
-            <span class="card-action">{{ if .Params.download }}Details & download{{ else }}Explore the archive{{ end }} <span aria-hidden="true">→</span></span>
+            <span class="card-action">{{ with .Params.cardaction }}{{ . }}{{ else }}{{ if .Params.download }}Details & download{{ else }}Explore the archive{{ end }}{{ end }} <span aria-hidden="true">→</span></span>
         </div>
     </a>
 </article>

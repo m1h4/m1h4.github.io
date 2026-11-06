@@ -41,7 +41,7 @@ The build job has read-only repository permissions. Only the production deployme
 
 ## Analytics
 
-Cloudflare Web Analytics uses the public beacon identifier in `config.toml`. It is included only in production builds and is always excluded by `hugo server`, including when the server uses the production environment. Use the test environment for static previews. Cloudflare automatic injection is disabled; DNS and hosting remain on the existing setup.
+Cloudflare Web Analytics uses the public beacon identifier in `config.toml`. Events landing, privacy, support, and catalogue pages opt out with `noAnalytics: true`; their routes are recorded in `tests/legacy-contract.json`. Elsewhere it is included only in production builds and is always excluded by `hugo server`, including when the server uses the production environment. Use the test environment for static previews. Cloudflare automatic injection is disabled; DNS and hosting remain on the existing setup.
 
 [Open Web Analytics](https://dash.cloudflare.com/e2ea5e5904a6618a6f0363269c888fdf/web-analytics) to view the `www.mihasoftware.com` site. The service reports visits and pageviews, has six months of accessible history, and does not count custom download events. Browser blockers may suppress measurements. The previous GA4 account and historical data are retained, but this site no longer sends GA4 events.
 
@@ -57,3 +57,9 @@ The tag `pre-hugo-migration-2026-11-06` points to the last generated-site commit
 4. Verify the website. To restore the source deployment later, select **GitHub Actions**, re-enable the workflow, and dispatch it on `master`.
 
 Normal rollback after subsequent changes is a revert PR followed by the standard deployment workflow.
+
+## Events release pages
+
+`content/events/` contains the English and Croatian landing, privacy and support pages. Keep `/events/`, `/events/index-hr.html`, `/events/privacy.html`, `/events/privacy-hr.html`, `/events/support.html` and `/events/support-hr.html` stable: the Android app uses these URLs. The shared Events layout is `themes/m1h4/layouts/events.html`; screenshots and the icon are in `static/events/` and contain only fictional calendar data. Update the existing page when editing either translation, and preserve the same-page language links.
+
+The catalogue entry is `content/apps/events.md`. The app is still preparing for release; add its verified Google Play link only when published. Support uses `support@mihasoftware.com`. Changes deploy through the normal pull-request and Actions workflow.

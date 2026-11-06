@@ -1,4 +1,4 @@
-{{- if and hugo.IsProduction (not hugo.IsServer) -}}
+{{- if and hugo.IsProduction (not hugo.IsServer) (not .Params.noAnalytics) -}}
   {{- with .Site.Params.analytics.cloudflareToken -}}
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{ dict "token" . | jsonify }}'></script>
   {{- end -}}

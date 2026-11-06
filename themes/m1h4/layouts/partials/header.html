@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="{{ .Params.language | default "en-US" }}">
 {{ partial "head/head" . }}
 <body>
-<a class="skip-link" href="#main-content">Skip to content</a>
-<header class="banner shell">
+<a class="skip-link" href="#main-content">{{ if eq .Params.language "hr" }}Preskoči na sadržaj{{ else }}Skip to content{{ end }}</a>
+<header class="banner shell" lang="en">
     <a class="brand" href="/"><span aria-hidden="true">›_</span> {{ .Site.Title }}</a>
     {{ partial "nav/main" . }}
 </header>
