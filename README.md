@@ -8,6 +8,14 @@ Run `./scripts/hugo server --disableFastRender` and open the local URL it prints
 
 Edit Markdown in `content/`, public files in `static/`, and the custom theme in `themes/m1h4/`. Keep existing filenames and download paths stable. Add descriptive `alt`, `width`, and `height` arguments to figure shortcodes, separated by blank lines. Use `loading="lazy"` for below-the-fold images.
 
+## Portfolio content
+
+The app catalogue is generated from `content/apps/`. Each app supplies `description`, `platform`, `availability`, `compatibility`, and `weight` in its front matter. Downloadable apps also supply `version`, `download`, and `downloadlabel`; omit these when there is no available download. Set `featured: true` to include an app on the homepage. Optional `screenshot` and `screenshotalt` display an existing image; `artmark` and `artcaption` provide a typographic alternative. Set `toc: true` for longer instructions. Do not label historical compatibility as newly tested.
+
+Photos use paired `gallery` and `photo` shortcodes, as demonstrated in `content/photos.md`. Each photo supplies its original `src`, `title`, `caption`, `alt`, and loading priority; its inner Markdown holds the original commentary. Hugo generates 640, 1200, and 1800px WebP variants without changing the originals. The enlarged view loads an original only when opened. The wrapper keeps processing caches under `.cache/` (override with `HUGO_CACHEDIR` if needed).
+
+Writing uses the original `date` as its publication date. Add `lastmod` explicitly only for a substantive content update; changing the theme does not change article dates. Appearance follows the device preference until the visitor chooses Light or Dark in the footer. No JavaScript is required to navigate, download apps, or open original photos.
+
 ## Validation
 
 Python 3.9 or newer is needed only for validation:

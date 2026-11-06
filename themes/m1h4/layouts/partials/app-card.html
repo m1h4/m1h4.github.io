@@ -1,0 +1,22 @@
+{{ $heading := .heading }}
+{{ with .page }}
+<article class="app-card">
+    <a class="card-link" href="{{ .RelPermalink }}">
+        <div class="card-art{{ if not .Params.screenshot }} card-art-type{{ end }}">
+        {{ with .Params.screenshot }}
+            {{ $image := resources.Get (strings.TrimPrefix "/" .) }}
+            <img src="{{ . }}" alt="{{ $.page.Params.screenshotalt }}" width="{{ $image.Width }}" height="{{ $image.Height }}" loading="lazy" decoding="async">
+        {{ else }}
+            <span class="type-art" aria-hidden="true">{{ .Params.artmark | default (substr .Title 0 1) }}<span>↳</span></span>
+            <span class="art-caption">{{ .Params.artcaption | default .Params.platform }}</span>
+        {{ end }}
+        </div>
+        <div class="card-copy">
+            <div class="card-meta"><span>{{ .Params.platform }}</span><span>{{ .Params.availability }}</span></div>
+            {{ if eq $heading "h2" }}<h2>{{ .Title }} <span aria-hidden="true">↗</span></h2>{{ else }}<h3>{{ .Title }} <span aria-hidden="true">↗</span></h3>{{ end }}
+            <p>{{ .Description }}</p>
+            <span class="card-action">{{ if .Params.download }}Details & download{{ else }}Explore the archive{{ end }} <span aria-hidden="true">→</span></span>
+        </div>
+    </a>
+</article>
+{{ end }}

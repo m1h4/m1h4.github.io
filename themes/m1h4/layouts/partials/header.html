@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-US">
-
 {{ partial "head/head" . }}
-
 <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
-    <header class="banner">
-      <div class="container">
-        <a class="brand" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
-        {{ partial "nav/main" . }}
-    <hr>
-    <span class="tagline">{{ .Site.Params.tagline }}</span>
-    </div>
-    </header>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="banner shell">
+    <a class="brand" href="/"><span aria-hidden="true">›_</span> {{ .Site.Title }}</a>
+    {{ partial "nav/main" . }}
+</header>

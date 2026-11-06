@@ -1,27 +1,32 @@
 ---
 title: "Analyzed"
-menu:
-    main:
-        name: "analyzed"
-        parent: "apps"
-        pre: "fa fa-angle-right"
 date: 2014-05-04T00:00:00+02:00
+description: "A compact audio visualization plugin for Windows Media Player. Give your music a different shape."
+platform: "Windows"
+availability: "Historical release"
+version: "0.6.0"
+download: "/downloads/Analyzed.exe"
+downloadlabel: "EXE installer"
+compatibility: "Originally tested with Windows Media Player 10, 11, and 12 (32-bit and 64-bit). Compatibility with current Windows versions has not been verified."
+screenshot: "/screenshots/Analyzed1.jpg"
+screenshotalt: "Analyzed Bars visualization in Windows Media Player"
+featured: true
+weight: 1
+toc: true
 ---
 
 Analyzed is a simple plugin for Windows Media Player written to be compact and minimalistic.
 It is a upgrade to the old Barr plugin which is not supported anymore.
 
-It was tested and is working on Windows Media Player 10, 11 and 12 (both 32-bit and 64-bit versions).
-It should work on older versions of the player but you might encounter problems like error messages appearing
-after you try to close Windows Media Player so I suggest that you [upgrade](http://windows.microsoft.com/en-us/windows/download-windows-media-player) to one of the tested versions if you haven’t already.
+The compatibility information above records the original testing; these instructions describe the original release.
 
-# Download
+## Download
 
 [Download Analyzed version 0.6.0](/downloads/Analyzed.exe) and start the installation application. The installer should automaticaly detect
 the folder in which Windows Media Player is installed and install the plugin into that folder. You should now see a
 new entry called Analyzed when you right click on the Visualization area in Windows Media Player.
 
-# Screenshots
+## Screenshots
 
 {{< figure src="/screenshots/Analyzed1.jpg" alt="Analyzed Bars visualization in Windows Media Player" width="350" height="276" loading="lazy" >}}
 
@@ -29,7 +34,7 @@ new entry called Analyzed when you right click on the Visualization area in Wind
 
 Two screenshots showing Analyzed in action. The first visualzation used in the screenshots is simply called Bars while the second one is Digital Bars.
 
-# Advanced
+## Advanced
 
 For most people the default settings will be just fine, but if you want, you can customize some parts of the
 visualization. To open the **Analyzed** options property sheet open the **Tools** menu and select **Options…**. Now click on

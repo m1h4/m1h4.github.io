@@ -86,6 +86,11 @@ def main():
                 and toggle.get("aria-expanded") == "false"
                 and toggle.get("aria-controls") == "main-navigation", "Inaccessible menu button: " + name)
         require(document.find(".//main[@id='main-content']") is not None, "Missing main landmark: " + name)
+        require(len(document.findall(".//h1")) == 1, "Expected one main heading: " + name)
+        require(document.find(".//select[@id='appearance']") is not None,
+                "Missing appearance preference: " + name)
+        require("fonts.googleapis.com" not in text and "maxcdn.bootstrapcdn.com" not in text,
+                "External font dependency remains: " + name)
         for image in document.findall(".//img"):
             require(bool(image.get("alt", "").strip()), "Missing image alternative: " + name)
             require(image.get("width", "").isdigit() and image.get("height", "").isdigit(),
@@ -95,10 +100,10 @@ def main():
         name = file.relative_to(directory).as_posix()
         page_url = urljoin(BASE_URL, name)
         for node in document.iter():
-            for attribute in ("href", "src"):
-                value = node.get(attribute)
-                if value is None:
-                    continue
+            references = [node.get(attribute) for attribute in ("href", "src") if node.get(attribute)]
+            references.extend(candidate.strip().split()[0] for candidate in node.get("srcset", "").split(",")
+                              if candidate.strip())
+            for value in references:
                 url = urlparse(urljoin(page_url, value))
                 if url.scheme not in ("http", "https") or url.hostname != "www.mihasoftware.com":
                     continue
@@ -143,6 +148,27 @@ def main():
         require(len(images) == 4 and images[0].get("loading") == "eager"
                 and all(image.get("loading") == "lazy" for image in images[1:]),
                 "Photo loading priorities regressed")
+        require(all(image.get("srcset") and image.get("sizes") for image in images),
+                "Gallery images need responsive sources")
+        links = photos.findall(".//a[@data-gallery]")
+        require(len(links) == 4 and all(link.get("href", "").startswith("/photos/")
+                                      and destination(link.get("href")).is_file() for link in links),
+                "Gallery must preserve original-image fallbacks")
+
+    catalogue = documents.get(directory / "apps/index.html")
+    if catalogue is not None:
+        cards = catalogue.findall(".//a[@class='card-link']")
+        app_routes = {route for route in contract["pages"] if route.startswith("/apps/") and route != "/apps/"}
+        require({card.get("href") for card in cards} == app_routes,
+                "App catalogue must include every app")
+    for slug, filename in (("analyzed", "Analyzed.exe"), ("audio-analyzer", "AudioAnalyzer.zip"), ("kurve", "kurve.zip")):
+        app = documents.get(directory / "apps" / slug / "index.html")
+        button = app.find(".//a[@class='button download-button']") if app is not None else None
+        require(button is not None and button.get("href") == "/downloads/" + filename,
+                "Missing primary download for " + slug)
+    unavailable = documents.get(directory / "apps/photo-resize/index.html")
+    require(unavailable is not None and unavailable.find(".//a[@class='button download-button']") is None,
+            "Unavailable app should not offer a download")
 
     if errors:
         raise SystemExit("\n".join(errors))
