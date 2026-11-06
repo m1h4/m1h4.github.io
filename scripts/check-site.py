@@ -73,7 +73,7 @@ def main():
         require("googletagmanager.com" not in text and "google-analytics.com" not in text,
                 "Google Analytics remains in: " + name)
         beacons = document.findall(".//script[@src='https://static.cloudflareinsights.com/beacon.min.js']")
-        require(len(beacons) == (1 if args.analytics == "on" else 0),
+        require(len(beacons) == (1 if args.analytics == "on" and route not in contract.get("analytics_excluded", []) else 0),
                 "Incorrect analytics inclusion: " + name)
         for beacon in beacons:
             try:

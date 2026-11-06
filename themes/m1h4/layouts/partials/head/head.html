@@ -34,6 +34,11 @@
 
     <link rel="canonical" href="{{ .Permalink }}">
 
+    {{ with .Params.alternate }}
+    <link rel="alternate" hreflang="{{ if eq $.Params.language "hr" }}en{{ else }}hr{{ end }}" href="{{ . | absURL }}">
+    <link rel="alternate" hreflang="{{ $.Params.language }}" href="{{ $.Permalink }}">
+    {{ end }}
+
     {{ partial "head/includes" . }}
 
 </head>

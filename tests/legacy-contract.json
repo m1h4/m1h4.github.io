@@ -6,8 +6,15 @@
     "/apps/",
     "/apps/analyzed/",
     "/apps/audio-analyzer/",
+    "/apps/events/",
     "/apps/kurve/",
     "/apps/photo-resize/",
+    "/events/",
+    "/events/index-hr.html",
+    "/events/privacy-hr.html",
+    "/events/privacy.html",
+    "/events/support-hr.html",
+    "/events/support.html",
     "/photos/",
     "/posts/",
     "/posts/analyzed-windows-64/",
@@ -61,5 +68,14 @@
     "screenshots/AudioAnalyzer2.jpg": "638781b56342e58a76bbabe9d92e3c22016ce0c23ee099f045657efaebaca01c",
     "screenshots/PhotoResize1.png": "f7f47c119c1a5f9125f067d02caac9c348350196dcabf8f686c66f56cc24d261",
     "screenshots/PhotoResize2.png": "2b5b1649c8d7e1d1c38465aea02b1b64af827f724d55c16a78e6341942f821ec"
-  }
+  },
+  "analytics_excluded": [
+    "/events/",
+    "/events/index-hr.html",
+    "/events/privacy.html",
+    "/events/privacy-hr.html",
+    "/events/support.html",
+    "/events/support-hr.html",
+    "/apps/events/"
+  ]
 }
