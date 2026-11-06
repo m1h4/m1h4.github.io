@@ -1,0 +1,17 @@
+        <footer class="content-info">
+            <hr>
+            <div class="container">
+                <section class="left">
+                    Content © <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.author }}</a> {{ .Site.Params.copyrightYear }}. All Rights Reserved.
+                </section>
+                <section class="right">
+                    {{ with .Site.Home.OutputFormats.Get "rss" }}
+                    <a href="{{ .RelPermalink }}"><i class="fa fa-rss-square" aria-hidden="true"></i> News feed</a>
+                    {{ end }}
+                </section>
+            </div>
+        </footer>
+        <script src="/js/menu.js"></script>
+        {{ partial "footer/analytics" . }}
+    </body>
+</html>

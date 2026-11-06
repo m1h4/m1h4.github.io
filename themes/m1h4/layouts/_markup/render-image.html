@@ -1,0 +1,3 @@
+{{- $path := strings.TrimPrefix "/" (urls.Parse .Destination).Path -}}
+{{- $image := resources.Get $path -}}
+<img src="{{ .Destination | safeURL }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ with $image }} width="{{ .Width }}" height="{{ .Height }}"{{ end }} loading="lazy" decoding="async">

@@ -1,0 +1,9 @@
+.idea/
+public/
+.hugo_build.lock
+resources/_gen/
+.cache/
+.venv/
+.cloudflare/
+.DS_Store
+__pycache__/

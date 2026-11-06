@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+project_dir="$(cd "$(dirname "$0")/.." && pwd)"
+hugo_version="$(tr -d '\r\n' < "$project_dir/.hugo-version")"
+tools_dir="$project_dir/.cache/hugo/$hugo_version"
+
+if [[ ! -x "$tools_dir/hugo" ]]; then
+    case "$(uname -s)-$(uname -m)" in
+        Darwin-*) package="hugo_${hugo_version}_darwin-universal.pkg" ;;
+        Linux-x86_64) package="hugo_${hugo_version}_linux-amd64.tar.gz" ;;
+        Linux-aarch64|Linux-arm64) package="hugo_${hugo_version}_linux-arm64.tar.gz" ;;
+        *) echo "Unsupported platform; install Hugo $hugo_version from its official release." >&2; exit 1 ;;
+    esac
+    download_dir="$(mktemp -d)"
+    trap 'rm -rf "$download_dir"' EXIT
+    release_url="https://github.com/gohugoio/hugo/releases/download/v${hugo_version}"
+    curl --fail --silent --show-error --location "$release_url/$package" --output "$download_dir/$package"
+    curl --fail --silent --show-error --location "$release_url/hugo_${hugo_version}_checksums.txt" --output "$download_dir/checksums.txt"
+    (
+        cd "$download_dir"
+        awk -v file="$package" '$2 == file { print; found=1 } END { if (!found) exit 1 }' checksums.txt > selected-checksum.txt
+        shasum -a 256 --check selected-checksum.txt
+    ) >&2
+    mkdir -p "$tools_dir"
+    if [[ "$package" == *.pkg ]]; then
+        pkgutil --expand-full "$download_dir/$package" "$download_dir/unpacked"
+        cp "$download_dir/unpacked/Payload/hugo" "$tools_dir/hugo"
+    else
+        tar -xzf "$download_dir/$package" -C "$tools_dir" hugo
+    fi
+    chmod +x "$tools_dir/hugo"
+fi
+
+cd "$project_dir"
+exec "$tools_dir/hugo" "$@"
