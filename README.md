@@ -41,7 +41,7 @@ The build job has read-only repository permissions. Only the production deployme
 
 ## Analytics
 
-Cloudflare Web Analytics uses the public beacon identifier in `config.toml`. Events and Photo Resize landing, privacy, support, and catalogue pages opt out with `noAnalytics: true`; their routes are recorded in `tests/legacy-contract.json`. Elsewhere it is included only in production builds and is always excluded by `hugo server`, including when the server uses the production environment. Use the test environment for static previews. Cloudflare automatic injection is disabled; DNS and hosting remain on the existing setup.
+Cloudflare Web Analytics uses the public beacon identifier in `config.toml`. Events and Photo Resize landing, privacy, support, and catalogue pages, and the Radio privacy and support pages, opt out with `noAnalytics: true`; their routes are recorded in `tests/legacy-contract.json`. Elsewhere it is included only in production builds and is always excluded by `hugo server`, including when the server uses the production environment. Use the test environment for static previews. Cloudflare automatic injection is disabled; DNS and hosting remain on the existing setup.
 
 [Open Web Analytics](https://dash.cloudflare.com/e2ea5e5904a6618a6f0363269c888fdf/web-analytics) to view the `www.mihasoftware.com` site. The service reports visits and pageviews, has six months of accessible history, and does not count custom download events. Browser blockers may suppress measurements. The previous GA4 account and historical data are retained, but this site no longer sends GA4 events.
 
@@ -75,3 +75,9 @@ The rebuilt app is in internal testing; add its public Google Play link only aft
 The catalogue/English landing page is `content/apps/beam.md`. Its Croatian translation, bilingual privacy policy, and support pages are in `content/beam/`, with a non-rendered section index. Preserve `/apps/beam/`, `/apps/beam/hr/`, `/apps/beam/privacy/`, `/apps/beam/privacy/hr/`, `/apps/beam/support/` and `/apps/beam/support/hr/`; the App Store listing links to the privacy and support URLs. The shared layout is `themes/m1h4/layouts/beam.html`, which reuses the Photo Resize page styles; the icon and screenshots are in `static/beam/` and show only generated sample photos.
 
 Beam 1.0 is being prepared for the App Store; add its App Store link only after the app is released. Support uses `support@mihasoftware.com`. These pages opt out of analytics with `noAnalytics: true`, and their routes are recorded in `tests/legacy-contract.json`.
+
+## Radio release pages
+
+`content/radio/` contains the English and Croatian privacy and support pages for the iOS app Radio: Croatian Stations, with a non-rendered section index. Preserve `/apps/radio/privacy/`, `/apps/radio/privacy/hr/`, `/apps/radio/support/` and `/apps/radio/support/hr/`: the iOS app and its App Store listing link to these URLs, which follow the Beam layout. The shared Radio layout is `themes/m1h4/layouts/radio.html`, which reuses the Events page styles; it links only between these pages and their translations, because there is no `/apps/radio/` landing page yet. Update the existing page when editing either translation, and preserve the same-page language links.
+
+The app is not on the App Store yet, so there is no catalogue entry in `content/apps/`; add it, a landing page and the verified App Store link only after the app is released. Support uses `support@mihasoftware.com`. These pages opt out of analytics with `noAnalytics: true`, and their routes are recorded in `tests/legacy-contract.json`. Changes deploy through the normal pull-request and Actions workflow.
