@@ -22,13 +22,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - name: Install validation dependencies
-        run: python3 -m pip install -r tests/requirements.txt
-      - name: Build without analytics
-        run: ./scripts/hugo --environment test --destination .cache/test-site --minify --panicOnWarning
-      - name: Validate preview output
-        run: python3 scripts/check-site.py .cache/test-site --analytics off
-      - name: Build production
-        run: ./scripts/hugo --environment production --minify --panicOnWarning
-      - name: Validate production output
-        run: python3 scripts/check-site.py public --analytics on
+      - name: Build and validate without analytics
+        run: ./scripts/build preview
+      - name: Build and validate production
+        run: ./scripts/build production
