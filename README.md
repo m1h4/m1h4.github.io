@@ -35,13 +35,13 @@ The checks parse HTML, validate metadata, internal links, sitemap and feeds, ver
 
 ## Publishing
 
-Open a pull request against `master`. GitHub Actions builds both test and production output and validates them, and Cloudflare builds a private Preview of the branch and posts its address on the pull request. Merging to `master` makes Cloudflare build, validate and deploy the site to `www.mihasoftware.com`. Never commit `public/` or edit generated HTML.
+Open a pull request against `master`. GitHub Actions builds both test and production output and validates them, and Cloudflare builds a private Preview of the branch, reported on the pull request as the **Workers Builds** check. Merging to `master` makes Cloudflare build, validate and deploy the site to `www.mihasoftware.com`. Never commit `public/` or edit generated HTML.
 
 `wrangler.jsonc` describes the Worker `m1h4-github-io`: static assets from `public/`, no Worker script, `404.html` for unknown paths, and `www.mihasoftware.com` as its custom domain, whose DNS record and certificate Cloudflare manages. The Worker's own `workers.dev` address is switched off, so production is served only from the custom domain. A redirect rule in the `mihasoftware.com` zone sends the apex domain and plain HTTP to `https://www.mihasoftware.com`, keeping the path and query.
 
 The Worker must use these settings under **Settings → Build**: build command `./scripts/build`, deploy command `npx wrangler deploy`, preview command `npx wrangler preview`, production branch `master`, and **Enable Preview Builds** on. Its name must match `name` in `wrangler.jsonc`. No build variables are needed; `scripts/build` reads the branch from `WORKERS_CI_BRANCH`.
 
-Pushes to `master` get the production build. Every other branch gets a Preview: a `test` build without analytics at its own `workers.dev` address. Both builds run the validator, and a failure stops the deployment. Cloudflare Access protects the Previews (the Worker's **Access** tab, previews only), so they need a sign-in; they also send `X-Robots-Tag: noindex`.
+Pushes to `master` get the production build. Every other branch gets a Preview: a `test` build without analytics at `<branch>-m1h4-github-io` on the account's `workers.dev` subdomain; the check's build log prints the full address. Both builds run the validator, and a failure stops the deployment. Cloudflare Access protects the Previews (the Worker's **Access** tab, previews only), so they need a sign-in; they also send `X-Robots-Tag: noindex`.
 
 Cloudflare redirects `.html` pages such as `/events/privacy.html` to the same path without the extension.
 
