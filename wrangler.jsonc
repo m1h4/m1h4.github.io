@@ -8,10 +8,10 @@
         // Unknown paths get the site's 404.html with a 404 status.
         "not_found_handling": "404-page"
     },
-    // Production is served only from the custom domain. A production deploy points the
-    // domain's DNS record at this Worker; Cloudflare manages the certificate.
+    // Production is served only through this route. The hostname's DNS record is a proxied
+    // placeholder kept in the zone, and the zone's universal certificate covers it.
     "routes": [
-        { "pattern": "www.mihasoftware.com", "custom_domain": true }
+        { "pattern": "www.mihasoftware.com/*", "zone_name": "mihasoftware.com" }
     ],
     "workers_dev": false,
     // Pull-request previews are served on workers.dev, behind Cloudflare Access.

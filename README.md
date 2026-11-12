@@ -37,7 +37,7 @@ The checks parse HTML, validate metadata, internal links, sitemap and feeds, ver
 
 Open a pull request against `master`. GitHub Actions builds both test and production output and validates them, and Cloudflare builds a private Preview of the branch, reported on the pull request as the **Workers Builds** check. Merging to `master` makes Cloudflare build, validate and deploy the site to `www.mihasoftware.com`. Never commit `public/` or edit generated HTML.
 
-`wrangler.jsonc` describes the Worker `m1h4-github-io`: static assets from `public/`, no Worker script, `404.html` for unknown paths, and `www.mihasoftware.com` as its custom domain, whose DNS record and certificate Cloudflare manages. The Worker's own `workers.dev` address is switched off, so production is served only from the custom domain. A redirect rule in the `mihasoftware.com` zone sends the apex domain and plain HTTP to `https://www.mihasoftware.com`, keeping the path and query.
+`wrangler.jsonc` describes the Worker `m1h4-github-io`: static assets from `public/`, no Worker script, `404.html` for unknown paths, and the route `www.mihasoftware.com/*`. The Worker's own `workers.dev` address is switched off, so production is served only through that route. In the `mihasoftware.com` zone, the `www` and apex DNS records are proxied placeholders with no origin behind them, and a redirect rule sends the apex domain and plain HTTP to `https://www.mihasoftware.com`, keeping the path and query. A route is used instead of a Worker custom domain because Cloudflare will not attach a custom domain to a hostname that already has a DNS record, and removing the record first would have left `www` unresolvable during the move.
 
 The Worker must use these settings under **Settings → Build**: build command `./scripts/build`, deploy command `npx wrangler deploy`, preview command `npx wrangler preview`, production branch `master`, and **Enable Preview Builds** on. Its name must match `name` in `wrangler.jsonc`. No build variables are needed; `scripts/build` reads the branch from `WORKERS_CI_BRANCH`.
 
@@ -59,7 +59,7 @@ The source snapshot was imported from private `m1h4/website` commit `8629dfbbcd3
 
 To undo a release, revert its pull request; Cloudflare builds and deploys the revert. For an immediate fix, roll the Worker back to an earlier version under **Deployments** in the Cloudflare dashboard; the next push to `master` replaces it.
 
-GitHub Pages served the site until November 2026. To move back, revert the pull request that made the switch, which restores the Pages deployment, and point the `www` and apex DNS records at `m1h4.github.io` again. The tag `pre-hugo-migration-2026-11-06` points to the last generated-site commit, `1e7398276ade5259ad9598794c8cfc485a2f494c`.
+GitHub Pages served the site until November 2026. To move back, revert the pull request that made the switch, which restores the Pages deployment, and make the `www` and apex DNS records DNS-only CNAMEs to `m1h4.github.io` again. The tag `pre-hugo-migration-2026-11-06` points to the last generated-site commit, `1e7398276ade5259ad9598794c8cfc485a2f494c`.
 
 ## Events release pages
 
