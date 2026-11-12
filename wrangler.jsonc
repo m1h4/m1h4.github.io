@@ -1,13 +1,19 @@
 // Cloudflare Workers static assets: serves the Hugo output in public/ with no Worker script.
-// The Worker in the Cloudflare dashboard must have the same name.
+// The name is the Worker's name in the Cloudflare dashboard; the two must match.
 {
-    "name": "mihasoftware",
+    "name": "m1h4-github-io",
     "compatibility_date": "2026-11-12",
     "assets": {
         "directory": "./public",
         // Unknown paths get the site's 404.html with a 404 status.
         "not_found_handling": "404-page"
     },
+    // Production is served only from the custom domain. A production deploy points the
+    // domain's DNS record at this Worker; Cloudflare manages the certificate.
+    "routes": [
+        { "pattern": "www.mihasoftware.com", "custom_domain": true }
+    ],
+    "workers_dev": false,
     // Pull-request previews are served on workers.dev, behind Cloudflare Access.
     "preview_urls": true,
     "previews": {}

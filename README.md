@@ -1,6 +1,6 @@
 # miha software
 
-Source for [www.mihasoftware.com](https://www.mihasoftware.com/), built with Hugo and deployed by GitHub Actions to GitHub Pages.
+Source for [www.mihasoftware.com](https://www.mihasoftware.com/), built with Hugo and served by Cloudflare Workers.
 
 ## Local development
 
@@ -35,21 +35,17 @@ The checks parse HTML, validate metadata, internal links, sitemap and feeds, ver
 
 ## Publishing
 
-Open a pull request against `master`. CI builds both test and production output and validates them; PRs do not deploy. Merging to `master` builds and uploads the `public/` artifact, then deploys it to the `github-pages` environment. A manual workflow run on `master` can redeploy the current source. Never commit `public/` or edit generated HTML.
+Open a pull request against `master`. GitHub Actions builds both test and production output and validates them, and Cloudflare builds a private Preview of the branch and posts its address on the pull request. Merging to `master` makes Cloudflare build, validate and deploy the site to `www.mihasoftware.com`. Never commit `public/` or edit generated HTML.
 
-Pages must use **GitHub Actions**, with custom domain **www.mihasoftware.com** and **Enforce HTTPS** enabled. DNS remains at its existing provider. With Actions publishing, the domain is managed in Pages settings; a CNAME file is unnecessary. The apex and GitHub hostname redirect to the canonical `www` URL.
+`wrangler.jsonc` describes the Worker `m1h4-github-io`: static assets from `public/`, no Worker script, `404.html` for unknown paths, and `www.mihasoftware.com` as its custom domain, whose DNS record and certificate Cloudflare manages. The Worker's own `workers.dev` address is switched off, so production is served only from the custom domain. A redirect rule in the `mihasoftware.com` zone sends the apex domain and plain HTTP to `https://www.mihasoftware.com`, keeping the path and query.
 
-The build job has read-only repository permissions. Only the production deployment job receives `pages: write` and `id-token: write`; production deployments are serialized. No personal access token or cross-repository push is used. Monthly Dependabot PRs update the pinned Actions revisions. To update Hugo, change `.hugo-version`, run both validations, and review the browser preview before merging.
+The Worker must use these settings under **Settings → Build**: build command `./scripts/build`, deploy command `npx wrangler deploy`, preview command `npx wrangler preview`, production branch `master`, and **Enable Preview Builds** on. Its name must match `name` in `wrangler.jsonc`. No build variables are needed; `scripts/build` reads the branch from `WORKERS_CI_BRANCH`.
 
-## Cloudflare builds and previews
+Pushes to `master` get the production build. Every other branch gets a Preview: a `test` build without analytics at its own `workers.dev` address. Both builds run the validator, and a failure stops the deployment. Cloudflare Access protects the Previews (the Worker's **Access** tab, previews only), so they need a sign-in; they also send `X-Robots-Tag: noindex`.
 
-Cloudflare Workers Builds also builds this repository, as the Worker `mihasoftware` described by `wrangler.jsonc`: static assets from `public/`, no Worker script, and `404.html` for unknown paths. GitHub Pages remains the production host until `www.mihasoftware.com` is moved to the Worker.
+Cloudflare redirects `.html` pages such as `/events/privacy.html` to the same path without the extension.
 
-The Worker must use these settings under **Settings → Build**: build command `./scripts/build`, deploy command `npx wrangler deploy`, preview command `npx wrangler preview`, production branch `master`, and **Enable Preview Builds** on. Its name must match `name` in `wrangler.jsonc`, or builds fail. No build variables are needed; `scripts/build` reads the branch from `WORKERS_CI_BRANCH`.
-
-Pushes to `master` get the production build and deploy it. Every other branch gets a Preview: a `test` build without analytics at its own `workers.dev` address, which Cloudflare posts on the pull request. Both builds run the validator, and a failure stops the deployment. Keep the `workers.dev` and Preview URLs behind Cloudflare Access (**Settings → Domains & Routes**) so previews stay private; they also send `X-Robots-Tag: noindex`.
-
-Cloudflare redirects `.html` pages such as `/events/privacy.html` to the same path without the extension, where GitHub Pages serves both forms.
+The GitHub Actions workflow has read-only repository permissions and never deploys. Monthly Dependabot PRs update its pinned Actions revisions. To update Hugo, change `.hugo-version`, run both validations, and review the Preview before merging.
 
 ## Analytics
 
@@ -61,14 +57,9 @@ Cloudflare Web Analytics uses the public beacon identifier in `config.toml`. Eve
 
 The source snapshot was imported from private `m1h4/website` commit `8629dfbbcd3a35c3450d53cd93841a897d575a28`; its private history was not imported. That repository is retained as an archived reference after successful cutover.
 
-The tag `pre-hugo-migration-2026-11-06` points to the last generated-site commit, `1e7398276ade5259ad9598794c8cfc485a2f494c`. For emergency rollback:
+To undo a release, revert its pull request; Cloudflare builds and deploys the revert. For an immediate fix, roll the Worker back to an earlier version under **Deployments** in the Cloudflare dashboard; the next push to `master` replaces it.
 
-1. Disable this repository's publishing workflow to prevent a concurrent deployment.
-2. Create a branch such as `rollback/generated-site` from the saved tag without rewriting `master`.
-3. In Settings → Pages, select **Deploy from a branch**, the rollback branch, and `/ (root)`. Retain the custom domain and HTTPS setting. The saved commit includes its original CNAME and `.nojekyll` files.
-4. Verify the website. To restore the source deployment later, select **GitHub Actions**, re-enable the workflow, and dispatch it on `master`.
-
-Normal rollback after subsequent changes is a revert PR followed by the standard deployment workflow.
+GitHub Pages served the site until November 2026. To move back, revert the pull request that made the switch, which restores the Pages deployment, and point the `www` and apex DNS records at `m1h4.github.io` again. The tag `pre-hugo-migration-2026-11-06` points to the last generated-site commit, `1e7398276ade5259ad9598794c8cfc485a2f494c`.
 
 ## Events release pages
 
