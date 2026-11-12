@@ -1,9 +1,6 @@
-<button id="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="main-navigation" aria-expanded="false">Menu <span aria-hidden="true">＋</span></button>
-<nav id="main-navigation" class="nav-primary" aria-label="Main navigation">
+<nav id="main-navigation" class="nav" aria-label="Main navigation">
     <ul>
-    {{ $page := . }}
-    {{ range slice (dict "title" "Apps" "path" "/apps/") (dict "title" "Writing" "path" "/posts/") (dict "title" "Photos" "path" "/photos/") (dict "title" "About" "path" "/about/") }}
-        <li><a href="{{ .path }}"{{ if eq $page.RelPermalink .path }} aria-current="page"{{ else if strings.HasPrefix $page.RelPermalink .path }} aria-current="location"{{ end }}>{{ .title }}</a></li>
-    {{ end }}
+        <li><a href="/"{{ if .IsHome }} aria-current="page"{{ else if in (slice "apps" "events" "photo-resize" "beam" "radio") .Section }} aria-current="location"{{ end }}>Apps</a></li>
+        <li><a href="/about/"{{ if eq .RelPermalink "/about/" }} aria-current="page"{{ end }}>About &amp; Contact</a></li>
     </ul>
 </nav>

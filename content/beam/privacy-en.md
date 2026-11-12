@@ -10,7 +10,7 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "BEAM · IPHONE AND IPAD",
+  "eyebrow": "Beam · iPhone and iPad",
   "headline": "Privacy policy"
 }
 

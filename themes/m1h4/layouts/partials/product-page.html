@@ -1,0 +1,44 @@
+{{/* Shared page for an app's landing, privacy and support pages. An app without a landing page passes no home URL or icon. */}}
+{{ $page := .page }}
+{{ $hr := eq $page.Params.language "hr" }}
+{{ $urls := cond $hr .hr .en }}
+<main id="main-content" class="main shell">
+    <nav class="nav subnav" aria-label="{{ if $hr }}Navigacija za {{ .name }}{{ else }}{{ .name }} navigation{{ end }}">
+        {{ if $urls.home }}
+        <a class="subnav-brand" href="{{ $urls.home }}"{{ if eq $page.RelPermalink $urls.home }} aria-current="page"{{ end }}>{{ with .icon }}<img class="app-icon" src="{{ . }}" alt="{{ if $hr }}Ikona aplikacije {{ $.name }}{{ else }}{{ $.name }} app icon{{ end }}" width="48" height="48"> {{ end }}{{ .name }}</a>
+        {{ else }}
+        <span class="subnav-brand">{{ .name }}</span>
+        {{ end }}
+        <ul>
+            <li><a href="{{ $urls.privacy }}"{{ if eq $page.RelPermalink $urls.privacy }} aria-current="page"{{ end }}>{{ if $hr }}Privatnost{{ else }}Privacy{{ end }}</a></li>
+            <li><a href="{{ $urls.support }}"{{ if eq $page.RelPermalink $urls.support }} aria-current="page"{{ end }}>{{ if $hr }}Podrška{{ else }}Support{{ end }}</a></li>
+            <li><a href="{{ $page.Params.alternate }}" lang="{{ if $hr }}en{{ else }}hr{{ end }}" hreflang="{{ if $hr }}en{{ else }}hr{{ end }}">{{ if $hr }}English{{ else }}Hrvatski{{ end }}</a></li>
+        </ul>
+    </nav>
+    {{ if $page.Params.product }}
+    <article>
+        <header class="page-header has-shot">
+            <div>
+                <p class="label">{{ $page.Params.eyebrow }}</p>
+                <h1>{{ $page.Params.headline }}</h1>
+                <p class="lead">{{ $page.Params.intro }}</p>
+                <p class="note">{{ $page.Params.releasestatus }}</p>
+            </div>
+            <figure class="shot">
+                {{ partial "theme-picture" (dict "light" $page.Params.screenshot "dark" $page.Params.screenshotdark "alt" $page.Params.screenshotalt "loading" "eager" "sizes" "280px") }}
+                {{ with $page.Params.screenshotcaption }}<figcaption>{{ . }}</figcaption>{{ end }}
+            </figure>
+        </header>
+        <div class="page-body"><div class="prose">{{ $page.Content }}</div></div>
+    </article>
+    {{ else }}
+    <article class="prose">
+        <header class="page-header">
+            <p class="label">{{ $page.Params.eyebrow }}</p>
+            <h1>{{ $page.Params.headline }}</h1>
+        </header>
+        {{ $page.Content }}
+    </article>
+    {{ end }}
+    <p class="fineprint contact-line">{{ .fullname | default .name }} · Miha Software · <a href="mailto:{{ .email }}">{{ .email }}</a></p>
+</main>

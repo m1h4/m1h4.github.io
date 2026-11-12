@@ -1,8 +1,10 @@
 {{ partial "header" . }}
-<main id="main-content" class="main shell not-found">
-    <p class="eyebrow">404 · Page not found</p>
-    <h1>A little off course.</h1>
-    <p class="lead">That page isn't here. There are still a few things worth exploring.</p>
-    <div class="button-row"><a class="button" href="/apps/">Explore the apps →</a><a class="text-link" href="/">Back to home</a></div>
+<main id="main-content" class="main shell">
+    <header class="page-header">
+        <p class="label">404 · Page not found</p>
+        <h1>A little off course.</h1>
+        <p class="lead">This page may have moved or been retired. Explore the apps or get in touch.</p>
+        <p><a class="button" href="/">Explore the apps <span aria-hidden="true">→</span></a><a href="/about/">Contact</a></p>
+    </header>
 </main>
 {{ partial "footer" . }}

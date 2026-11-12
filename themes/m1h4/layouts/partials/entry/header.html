@@ -1,4 +1,4 @@
-<header class="page-heading">
+<header class="page-header">
     <h1>{{ .Title }}</h1>
-    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+    {{ if ne .Params.showdescription false }}{{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}{{ end }}
 </header>

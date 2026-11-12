@@ -10,7 +10,7 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "BEAM · IPHONE I IPAD",
+  "eyebrow": "Beam · iPhone i iPad",
   "headline": "Pomoć i podrška"
 }
 

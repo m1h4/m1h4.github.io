@@ -10,7 +10,7 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "MALA POMOĆ",
+  "eyebrow": "Mala pomoć",
   "headline": "Prilagodite Events sebi."
 }
 

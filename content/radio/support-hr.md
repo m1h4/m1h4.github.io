@@ -10,7 +10,7 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "RADIO · IPHONE I IPAD",
+  "eyebrow": "Radio · iPhone i iPad",
   "headline": "Pomoć i podrška"
 }
 

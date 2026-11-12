@@ -10,13 +10,16 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "PHOTO RESIZE · ANDROID 10+",
-  "headline": "Manja fotografija. Lakše dijeljenje."
+  "eyebrow": "Photo Resize · Android 10+",
+  "headline": "Manja fotografija. Lakše dijeljenje.",
+  "product": true,
+  "intro": "Izradi manju kopiju fotografije za e-poštu i poruke. Izvornik ostaje nepromijenjen.",
+  "releasestatus": "Photo Resize je besplatna Android aplikacija koja radi na uređaju. Obnovljena verzija trenutačno je u internom testiranju; javna stranica na Google Playu još nije dostupna.",
+  "screenshot": "/photo-resize/hr-light.png",
+  "screenshotdark": "/photo-resize/hr-dark.png",
+  "screenshotalt": "Photo Resize prikazuje sintetičku fotografiju obale, izvorne dimenzije i manje kopije za dijeljenje sa stvarnim veličinama datoteka.",
+  "screenshotcaption": "Snimka stvarne aplikacije sa sintetičkom oglednom fotografijom."
 }
-
-Izradi manju kopiju fotografije za e-poštu i poruke. Izvornik ostaje nepromijenjen.
-
-Photo Resize je besplatna Android aplikacija koja radi na uređaju. Obnovljena verzija trenutačno je u internom testiranju; javna stranica na Google Playu još nije dostupna.
 
 ## Odaberi, smanji, podijeli
 
@@ -33,7 +36,5 @@ Nema računa, oglasa, analitike ni dozvole za pristup mreži. Aplikacija kojoj o
 ## Prilagođeno Androidu
 
 Svijetla i tamna tema, boje sustava na podržanim uređajima, izgled prilagođen telefonima i tabletima te hrvatski i engleski jezik. Za Android 10 i noviji.
-
-{{< figure src="/photo-resize/hr-02-sizes.png" alt="Photo Resize prikazuje sintetičku fotografiju obale, izvorne dimenzije i manje kopije za dijeljenje sa stvarnim veličinama datoteka." width="1080" height="1920" loading="lazy" class="photo-resize-preview" caption="Snimka stvarne aplikacije sa sintetičkom oglednom fotografijom." >}}
 
 [Pomoć i podrška](/apps/photo-resize/support/hr/) · [Pravila privatnosti](/apps/photo-resize/privacy/hr/) · [English](/apps/photo-resize/)

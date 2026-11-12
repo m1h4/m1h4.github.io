@@ -1,13 +1,8 @@
 {{ partial "header" . }}
 <main id="main-content" class="main shell">
-    {{ if eq .Section "posts" }}<a class="back-link" href="/posts/">← All writing</a>{{ end }}
-    <div class="reading-layout{{ if .Params.sidelinks }} with-sidebar{{ end }}">
-        <article class="prose">
-            {{ partial "entry/header" . }}
-            {{ partial "entry/footer" . }}
-            {{ .Content }}
-        </article>
-        {{ if .Params.sidelinks }}{{ partial "nav/sidelinks" . }}{{ end }}
-    </div>
+    <article class="prose">
+        {{ partial "entry/header" . }}
+        {{ .Content }}
+    </article>
 </main>
 {{ partial "footer" . }}
