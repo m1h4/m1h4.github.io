@@ -45,4 +45,4 @@ Vrijedi od: 11. studenoga 2026.
 
 Ako pošaljete e-poruku na support@mihasoftware.com, primamo podatke koje odlučite uključiti i koristimo ih za odgovor. Izbjegavajte slanje privatnih fotografija osim ako su potrebne za objašnjenje problema. Možete zatražiti brisanje prepiske s podrškom.
 
-Ove javne stranice smještene su na usluzi GitHub Pages. Ta usluga pri posjetu može obrađivati uobičajene podatke o mrežnoj vezi. Stranice aplikacije Beam, privatnosti i podrške ne sadrže analitičke skripte ni kolačiće za praćenje. Preglednik može lokalno zapamtiti odabrani svijetli ili tamni izgled.
+Ove javne stranice smještene su na usluzi Cloudflare. Ta usluga pri posjetu može obrađivati uobičajene podatke o mrežnoj vezi. Stranice aplikacije Beam, privatnosti i podrške ne sadrže analitičke skripte ni kolačiće za praćenje. Preglednik može lokalno zapamtiti odabrani svijetli ili tamni izgled.

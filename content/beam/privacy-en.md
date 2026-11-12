@@ -45,4 +45,4 @@ Effective: 11 November 2026
 
 If you email support@mihasoftware.com, we receive the information you choose to include and use it to answer you. Avoid sending private photographs unless they are needed to explain the problem. You can ask us to delete support correspondence.
 
-These public pages are hosted on GitHub Pages. The hosting service may process standard connection information when you visit. Beam's app, privacy and support pages contain no analytics beacons or tracking cookies. Your browser may locally remember your chosen light or dark appearance.
+These public pages are hosted on Cloudflare. The hosting service may process standard connection information when you visit. Beam's app, privacy and support pages contain no analytics beacons or tracking cookies. Your browser may locally remember your chosen light or dark appearance.
