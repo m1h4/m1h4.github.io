@@ -22,7 +22,7 @@ def main():
     arguments.add_argument("--analytics", choices=["on", "off"], required=True)
     args = arguments.parse_args()
     directory = args.directory.resolve()
-    contract = json.loads((PROJECT / "tests/legacy-contract.json").read_text())
+    contract = json.loads((PROJECT / "tests/site-contract.json").read_text())
     errors = []
 
     def require(condition, message):
@@ -34,10 +34,15 @@ def main():
         target = directory / relative
         if path.endswith("/") or not relative:
             target /= "index.html"
+        elif not target.suffix and (html := target.with_name(target.name + ".html")).is_file():
+            target = html  # Cloudflare serves page.html at /page.
         return target
 
+    def public_url(route):
+        return urljoin(BASE_URL, route.removesuffix(".html"))
+
     for route in contract["pages"]:
-        require(destination(route).is_file(), "Missing legacy page: " + route)
+        require(destination(route).is_file(), "Missing page: " + route)
     for route in contract.get("redirects", {}):
         require(destination(route).is_file(), "Missing redirect: " + route)
     for route in contract.get("retired_pages", []):
@@ -82,9 +87,9 @@ def main():
                 "Missing social metadata: " + name)
         route = "/" + name.removesuffix("index.html") if name.endswith("index.html") else "/" + name
         canonical = document.find("head/link[@rel='canonical']")
-        require(canonical is not None and canonical.get("href") == urljoin(BASE_URL, route),
+        require(canonical is not None and canonical.get("href") == public_url(route),
                 "Incorrect canonical URL: " + name)
-        require(metadata.get("og:url") == urljoin(BASE_URL, route), "Incorrect social URL: " + name)
+        require(metadata.get("og:url") == public_url(route), "Incorrect social URL: " + name)
         require("https://mihasoftware.com" not in text, "Redirecting hostname in output: " + name)
         require("googletagmanager.com" not in text and "google-analytics.com" not in text,
                 "Google Analytics remains in: " + name)
@@ -145,7 +150,7 @@ def main():
     try:
         sitemap = ElementTree.parse(directory / "sitemap.xml")
         locations = [element.text for element in sitemap.findall(".//{*}loc")]
-        require(set(locations) == {urljoin(BASE_URL, route) for route in contract["pages"]},
+        require(set(locations) == {public_url(route) for route in contract["pages"]},
                 "Sitemap does not match content pages")
     except (OSError, ElementTree.ParseError) as error:
         require(False, "Invalid sitemap: " + str(error))

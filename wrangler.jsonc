@@ -1,7 +1,7 @@
 // Cloudflare Workers static assets: serves the Hugo output in public/ with no Worker script.
 // The name is the Worker's name in the Cloudflare dashboard; the two must match.
 {
-    "name": "m1h4-github-io",
+    "name": "miha-software",
     "compatibility_date": "2026-11-12",
     "assets": {
         "directory": "./public",

@@ -4,13 +4,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{ $title := .Site.Title }}
+    {{/* Cloudflare serves page.html at /page, so public addresses leave the extension out. */}}
+    {{ $permalink := strings.TrimSuffix ".html" .Permalink }}
     {{ if not .IsHome }}{{ $title = printf "%s | %s" .Title .Site.Title }}{{ end }}
     {{ $description := .Description | default (.Summary | plainify | htmlUnescape | strings.TrimSpace | truncate 160) | default .Site.Params.description }}
     <title>{{ $title }}</title>
     <meta name="description" content="{{ $description }}">
     <meta property="og:title" content="{{ $title }}">
     <meta property="og:description" content="{{ $description }}">
-    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:url" content="{{ $permalink }}">
     <meta property="og:site_name" content="{{ .Site.Title }}">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary">
@@ -29,11 +31,11 @@
     </script>
     <link rel="stylesheet" href="/css/main.css?v={{ sha256 (readFile "themes/m1h4/static/css/main.css") | truncate 12 "" }}">
 
-    <link rel="canonical" href="{{ .Permalink }}">
+    <link rel="canonical" href="{{ $permalink }}">
 
     {{ with .Params.alternate }}
-    <link rel="alternate" hreflang="{{ if eq $.Params.language "hr" }}en{{ else }}hr{{ end }}" href="{{ . | absURL }}">
-    <link rel="alternate" hreflang="{{ $.Params.language }}" href="{{ $.Permalink }}">
+    <link rel="alternate" hreflang="{{ if eq $.Params.language "hr" }}en{{ else }}hr{{ end }}" href="{{ strings.TrimSuffix ".html" (. | absURL) }}">
+    <link rel="alternate" hreflang="{{ $.Params.language }}" href="{{ $permalink }}">
     {{ end }}
 
     {{ partial "head/includes" . }}
