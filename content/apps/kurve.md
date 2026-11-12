@@ -8,9 +8,7 @@ version: "1.0.0"
 download: "/downloads/kurve.zip"
 downloadlabel: "ZIP archive"
 compatibility: "An original Windows release, preserved for download. Compatibility with current Windows versions has not been verified."
-featured: true
-artmark: "K"
-artcaption: "A game for good company"
+collection: "archive"
 weight: 3
 ---
 

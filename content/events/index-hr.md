@@ -10,11 +10,16 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "EVENTS ZA ANDROID",
-  "headline": "Jasniji pregled dana koji dolaze."
+  "eyebrow": "Events za Android",
+  "headline": "Jasniji pregled dana koji dolaze.",
+  "product": true,
+  "intro": "Sažet kalendarski widget koji se uklapa u vaš početni zaslon. Odaberite kalendare, prilagodite izgled i nastavite koristiti svoju omiljenu aplikaciju za kalendar.",
+  "releasestatus": "Modernizirana aplikacija priprema se za objavu. Poveznicu na Google Play dodat ćemo kada bude dostupna.",
+  "screenshot": "/events/widget-hr-light.png",
+  "screenshotdark": "/events/widget-hr-dark.png",
+  "screenshotalt": "Kalendarski widget Events na početnom zaslonu Androida s primjerima nadolazećih događaja.",
+  "screenshotcaption": "Nadolazeći događaji na vašem početnom zaslonu. Prikaz s primjerima podataka iz kalendara."
 }
-
-Sažet kalendarski widget koji se uklapa u vaš početni zaslon. Odaberite kalendare, prilagodite izgled i nastavite koristiti svoju omiljenu aplikaciju za kalendar.
 
 ## Privatnost od početka
 
@@ -24,10 +29,4 @@ Aplikacija nema račune, oglase ni analitiku. Podaci iz kalendara ostaju na ure�
 
 Prilagodljiva veličina widgeta, zaseban odabir kalendara, prozirna pozadina, čitljiv tekst te hrvatski i engleski jezik. Za Android 10 i noviji.
 
-
 [Pravila privatnosti](/events/privacy-hr.html) · [Pomoć i podrška](/events/support-hr.html)
-
-
-Modernizirana aplikacija priprema se za objavu. Poveznicu na Google Play dodat ćemo kada bude dostupna.
-
-{{< figure src="/events/widget-hr.png" alt="Widget Events na početnom zaslonu Androida s oglednim događajima iz kalendara." width="1080" height="1920" loading="lazy" class="events-preview" caption="Snimka kandidata za izdanje s izmišljenim podacima iz kalendara." >}}

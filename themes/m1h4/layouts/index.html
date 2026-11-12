@@ -1,22 +1,20 @@
 {{ partial "header" . }}
 <main id="main-content" class="main shell">
-    <section class="home-intro">
-        <p class="eyebrow">Software by Marko Mihovilić</p>
-        <h1>Made out of<br><span>curiosity.</span></h1>
-        <div class="intro-bottom"><div class="lead">{{ .Content }}</div><a class="button" href="/apps/">Explore the apps <span aria-hidden="true">↗</span></a></div>
-    </section>
-    <section class="featured" aria-labelledby="featured-heading">
-        <div class="section-heading"><div><p class="eyebrow">From the archive</p><h2 id="featured-heading">Small apps. Lasting experiments.</h2></div><a class="text-link" href="/apps/">All apps <span aria-hidden="true">→</span></a></div>
-        <div class="app-grid featured-grid">
-        {{ range (where (where .Site.RegularPages "Section" "apps") "Params.featured" true).ByWeight }}
-            {{ partial "app-card" (dict "page" . "heading" "h3") }}
+    <header class="page-header">
+        <h1>Small apps for<br><span>everyday things.</span></h1>
+        <div class="lead">{{ .Content }}</div>
+    </header>
+    <section aria-labelledby="apps-heading">
+        <div class="section-heading"><h2 id="apps-heading" class="label">Current apps</h2><p class="label">Free · Private</p></div>
+        <div class="app-grid">
+        {{ range (where (where .Site.RegularPages "Section" "apps") "Params.collection" "current").ByWeight }}
+            {{ partial "app-card" . }}
         {{ end }}
         </div>
     </section>
-    <section class="explore" aria-labelledby="explore-heading">
-        <h2 id="explore-heading">Beyond the apps</h2>
-        <a href="/posts/"><span class="eyebrow">Writing</span><h3>Notes from the workbench <span aria-hidden="true">↗</span></h3><p>Development notes and ideas from the archive.</p></a>
-        <a href="/photos/"><span class="eyebrow">Photography</span><h3>A different point of view <span aria-hidden="true">↗</span></h3><p>Panoramas, little details, and a camera in my pocket.</p></a>
+    <section aria-labelledby="archive-heading">
+        <h2 id="archive-heading" class="label">From the archive</h2>
+        <p>Audio experiments and a game for good company. <a href="/apps/archive/">Older apps <span aria-hidden="true">→</span></a></p>
     </section>
 </main>
 {{ partial "footer" . }}

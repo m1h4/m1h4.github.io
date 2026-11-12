@@ -10,7 +10,7 @@ downloadlabel: "ZIP archive"
 compatibility: "An original Windows release, preserved for download. Compatibility with current Windows versions has not been verified."
 screenshot: "/screenshots/AudioAnalyzer1.jpg"
 screenshotalt: "Audio Analyzer showing a sound visualization"
-featured: true
+collection: "archive"
 weight: 2
 ---
 

@@ -1,0 +1,15 @@
+{{/* A screenshot as responsive WebP. With a dark capture it follows the system or chosen theme. */}}
+{{ $sizes := .sizes | default "280px" }}
+{{ $light := resources.Get (strings.TrimPrefix "/" .light) }}
+{{ $large := printf "%dx webp q85" (int (math.Min 1080 $light.Width)) }}
+{{ $lightSmall := $light.Resize "540x webp q85" }}
+{{ $lightLarge := $light.Resize $large }}
+{{ with .dark }}
+{{ $dark := resources.Get (strings.TrimPrefix "/" .) }}
+{{ $darkSmall := $dark.Resize "540x webp q85" }}
+{{ $darkLarge := $dark.Resize $large }}
+<picture class="theme-picture">
+    <source data-theme-source media="(prefers-color-scheme: dark)" srcset="{{ $darkSmall.RelPermalink }} 540w, {{ $darkLarge.RelPermalink }} {{ $darkLarge.Width }}w" sizes="{{ $sizes }}" type="image/webp">
+{{ end }}
+    <img src="{{ $lightSmall.RelPermalink }}" srcset="{{ $lightSmall.RelPermalink }} 540w, {{ $lightLarge.RelPermalink }} {{ $lightLarge.Width }}w" sizes="{{ $sizes }}" alt="{{ .alt }}" width="{{ $light.Width }}" height="{{ $light.Height }}" loading="{{ .loading | default "lazy" }}" decoding="async">
+{{ if .dark }}</picture>{{ end }}

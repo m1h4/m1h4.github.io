@@ -2,7 +2,7 @@ baseURL = "https://www.mihasoftware.com/"
 locale = "en-US"
 title = "miha software"
 theme = "m1h4"
-disableKinds = ["taxonomy", "term"]
+disableKinds = ["taxonomy", "term", "RSS"]
 enableRobotsTXT = true
 
 # Also expose existing static images to Hugo's image renderer without moving URLs.
@@ -19,7 +19,7 @@ email = "support@mihasoftware.com"
 copyrightYear = 2022
 tagline = "Software Development by Marko Mihovilić"
 author = "Marko Mihovilić"
-description = "Software, development notes, and mobile photography by Marko Mihovilić."
+description = "Small, useful apps by Marko Mihovilić. Explore Events, Photo Resize and Beam, find support, and browse older projects."
 
 [params.analytics]
 # Public beacon identifier; analytics are emitted only in production builds.

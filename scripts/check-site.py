@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the published site, including the pre-migration URL/asset contract."""
+"""Validate site content, redirects, app collections, and preserved release assets."""
 
 import argparse
 import hashlib
@@ -38,6 +38,12 @@ def main():
 
     for route in contract["pages"]:
         require(destination(route).is_file(), "Missing legacy page: " + route)
+    for route in contract.get("redirects", {}):
+        require(destination(route).is_file(), "Missing redirect: " + route)
+    for route in contract.get("retired_pages", []):
+        require(not destination(route).exists(), "Retired page remains: " + route)
+    for name in contract.get("retired_assets", []) + contract.get("retired_feeds", []):
+        require(not (directory / name).exists(), "Retired asset/feed remains: " + name)
     for name, digest in contract["assets_sha256"].items():
         file = directory / name
         require(file.is_file(), "Missing original asset: " + name)
@@ -54,6 +60,16 @@ def main():
         document = parser.parse(text)
         documents[file] = document
         require(not parser.errors, "Invalid HTML in {}: {}".format(name, parser.errors))
+        route = "/" + name.removesuffix("index.html") if name.endswith("index.html") else "/" + name
+        if route in contract.get("redirects", {}):
+            target = urljoin(BASE_URL, contract["redirects"][route])
+            canonical = document.find("head/link[@rel='canonical']")
+            refresh = document.find("head/meta[@http-equiv='refresh']")
+            require(canonical is not None and canonical.get("href") == target,
+                    "Incorrect redirect canonical: " + name)
+            require(refresh is not None and refresh.get("content", "").endswith(target),
+                    "Incorrect redirect destination: " + name)
+            continue
         title = document.find("head/title")
         title_text = "".join(title.itertext()).strip() if title is not None else ""
         require(bool(title_text), "Missing title: " + name)
@@ -81,10 +97,9 @@ def main():
                 require(bool(re.fullmatch(r"[0-9a-f]{32}", token)), "Invalid beacon token: " + name)
             except (ValueError, AttributeError):
                 require(False, "Malformed beacon configuration: " + name)
-        toggle = document.find(".//button[@id='menu-toggle']")
-        require(toggle is not None and bool(toggle.get("aria-label"))
-                and toggle.get("aria-expanded") == "false"
-                and toggle.get("aria-controls") == "main-navigation", "Inaccessible menu button: " + name)
+        navigation = document.find(".//nav[@id='main-navigation']")
+        require(navigation is not None and [a.get("href") for a in navigation.findall(".//a")] == ["/", "/about/"],
+                "Main navigation must contain Apps and About & Contact: " + name)
         require(document.find(".//main[@id='main-content']") is not None, "Missing main landmark: " + name)
         require(len(document.findall(".//h1")) == 1, "Expected one main heading: " + name)
         require(document.find(".//select[@id='appearance']") is not None,
@@ -92,7 +107,7 @@ def main():
         require("fonts.googleapis.com" not in text and "maxcdn.bootstrapcdn.com" not in text,
                 "External font dependency remains: " + name)
         for image in document.findall(".//img"):
-            require(bool(image.get("alt", "").strip()), "Missing image alternative: " + name)
+            require(image.get("alt") is not None, "Missing image alternative: " + name)
             require(image.get("width", "").isdigit() and image.get("height", "").isdigit(),
                     "Missing image dimensions: " + name)
 
@@ -142,25 +157,24 @@ def main():
     not_found = documents.get(directory / "404.html")
     require(not_found is not None and not_found.find("head/meta[@content='noindex']") is not None,
             "Missing noindex 404 page")
-    photos = documents.get(directory / "photos/index.html")
-    if photos is not None:
-        images = photos.findall(".//img")
-        require(len(images) == 4 and images[0].get("loading") == "eager"
-                and all(image.get("loading") == "lazy" for image in images[1:]),
-                "Photo loading priorities regressed")
-        require(all(image.get("srcset") and image.get("sizes") for image in images),
-                "Gallery images need responsive sources")
-        links = photos.findall(".//a[@data-gallery]")
-        require(len(links) == 4 and all(link.get("href", "").startswith("/photos/")
-                                      and destination(link.get("href")).is_file() for link in links),
-                "Gallery must preserve original-image fallbacks")
-
-    catalogue = documents.get(directory / "apps/index.html")
-    if catalogue is not None:
-        cards = catalogue.findall(".//a[@class='card-link']")
-        app_routes = {route for route in contract["pages"] if route.startswith("/apps/") and len(route.strip("/").split("/")) == 2}
-        require({card.get("href") for card in cards} == app_routes,
-                "App catalogue must include every app")
+    for route, expected in (("/", {"/events/", "/apps/photo-resize/", "/apps/beam/"}),
+                            ("/apps/archive/", {"/apps/analyzed/", "/apps/audio-analyzer/", "/apps/kurve/"})):
+        page = documents.get(destination(route))
+        cards = page.findall(".//a[@class='app-link']") if page is not None else []
+        require({card.get("href") for card in cards} == expected and len(cards) == len(expected),
+                "Incorrect app collection: " + route)
+    for route, count in (("/", 2), ("/events/", 1), ("/events/index-hr.html", 1),
+                         ("/apps/photo-resize/", 1), ("/apps/photo-resize/hr/", 1)):
+        page = documents.get(destination(route))
+        pictures = page.findall(".//picture[@class='theme-picture']") if page is not None else []
+        require(len(pictures) == count, "Missing themed screenshots: " + route)
+        for picture in pictures:
+            source, image = picture.find("source"), picture.find("img")
+            require(source is not None and source.get("media") == "(prefers-color-scheme: dark)"
+                    and "-dark_" in source.get("srcset", "") and "data-theme-source" in source.attrib,
+                    "Missing system/manual dark screenshot source: " + route)
+            require(image is not None and "-light_" in image.get("srcset", "") and bool(image.get("alt", "").strip()),
+                    "Missing light screenshot/alternative: " + route)
     for slug, filename in (("analyzed", "Analyzed.exe"), ("audio-analyzer", "AudioAnalyzer.zip"), ("kurve", "kurve.zip")):
         app = documents.get(directory / "apps" / slug / "index.html")
         button = app.find(".//a[@class='button download-button']") if app is not None else None

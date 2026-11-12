@@ -10,9 +10,9 @@ downloadlabel: "EXE installer"
 compatibility: "Originally tested with Windows Media Player 10, 11, and 12 (32-bit and 64-bit). Compatibility with current Windows versions has not been verified."
 screenshot: "/screenshots/Analyzed1.jpg"
 screenshotalt: "Analyzed Bars visualization in Windows Media Player"
-featured: true
+collection: "archive"
 weight: 1
-toc: true
+aliases: ["/posts/analyzed-windows-64/"]
 ---
 
 Analyzed is a simple plugin for Windows Media Player written to be compact and minimalistic.

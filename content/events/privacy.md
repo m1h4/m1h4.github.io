@@ -10,7 +10,7 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "LAST UPDATED 6 NOVEMBER 2026",
+  "eyebrow": "Last updated 6 November 2026",
   "headline": "Privacy policy"
 }
 

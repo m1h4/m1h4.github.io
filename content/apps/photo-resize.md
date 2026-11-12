@@ -10,22 +10,23 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "PHOTO RESIZE · ANDROID 10+",
+  "eyebrow": "Photo Resize · Android 10+",
   "headline": "A lighter way to share.",
   "lastmod": "2026-11-06T00:00:00+01:00",
   "platform": "Android 10+",
   "availability": "Internal testing",
   "compatibility": "The modernized app is in internal testing. Public Google Play availability is pending.",
-  "screenshot": "/photo-resize/en-US-02-sizes.png",
-  "screenshotalt": "Photo Resize sharing options on modern Android",
-  "featured": false,
-  "weight": 4,
-  "cardaction": "Explore Photo Resize"
+  "screenshot": "/photo-resize/en-light.png",
+  "screenshotalt": "Photo Resize showing a synthetic coastal photo, original dimensions, and smaller sharing options with actual file sizes.",
+  "weight": 2,
+  "collection": "current",
+  "icon": "/photo-resize/icon.png",
+  "screenshotdark": "/photo-resize/en-dark.png",
+  "product": true,
+  "intro": "Make a smaller copy of a photo for emails and messages. Your original stays just as it is.",
+  "releasestatus": "Photo Resize is a free, offline Android utility. The rebuilt version is in internal testing; the public Google Play listing is not yet available.",
+  "screenshotcaption": "Actual app screenshot with a synthetic sample photo."
 }
-
-Make a smaller copy of a photo for emails and messages. Your original stays just as it is.
-
-Photo Resize is a free, offline Android utility. The rebuilt version is in internal testing; the public Google Play listing is not yet available.
 
 ## Choose, resize, share
 
@@ -42,7 +43,5 @@ The app has no accounts, advertising, analytics, or network permission. The app 
 ## At home on Android
 
 Light and dark themes, system colors on supported devices, adaptive phone and tablet layouts, and English and Croatian. Requires Android 10 or newer.
-
-{{< figure src="/photo-resize/en-US-02-sizes.png" alt="Photo Resize showing a synthetic coastal photo, original dimensions, and smaller sharing options with actual file sizes." width="1080" height="1920" loading="lazy" class="photo-resize-preview" caption="Actual app screenshot with a synthetic sample photo." >}}
 
 [Help and support](/apps/photo-resize/support/) · [Privacy policy](/apps/photo-resize/privacy/) · [Hrvatski](/apps/photo-resize/hr/)

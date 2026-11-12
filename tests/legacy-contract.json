@@ -3,8 +3,8 @@
   "pages": [
     "/",
     "/about/",
-    "/apps/",
     "/apps/analyzed/",
+    "/apps/archive/",
     "/apps/audio-analyzer/",
     "/apps/beam/",
     "/apps/beam/hr/",
@@ -12,7 +12,6 @@
     "/apps/beam/privacy/hr/",
     "/apps/beam/support/",
     "/apps/beam/support/hr/",
-    "/apps/events/",
     "/apps/kurve/",
     "/apps/photo-resize/",
     "/apps/photo-resize/hr/",
@@ -29,20 +28,9 @@
     "/events/privacy-hr.html",
     "/events/privacy.html",
     "/events/support-hr.html",
-    "/events/support.html",
-    "/photos/",
-    "/posts/",
-    "/posts/analyzed-windows-64/",
-    "/posts/android-runtime/",
-    "/posts/hello-world/",
-    "/posts/initial-content/",
-    "/posts/photo-section/"
+    "/events/support.html"
   ],
-  "feeds": [
-    "index.xml",
-    "apps/index.xml",
-    "posts/index.xml"
-  ],
+  "feeds": [],
   "assets_sha256": {
     "downloads/Analyzed.exe": "33171da246364a5486044949c258da08c27bdcdd353385f5051cb2aaef427267",
     "downloads/AudioAnalyzer.zip": "14432a948f70e8c2ce56cda0df982d3ccdb194fa947bff8e7a5f8f4a75f075aa",
@@ -72,11 +60,6 @@
     "icons/ms-icon-150x150.png": "5ab42386e0c12e203464cd3fefae3e78600d2f6c1341a428b6c3ae51a563a096",
     "icons/ms-icon-310x310.png": "02b722d87489fa30cadb8944c7c43d0d573cc46624b6b91f703ab39bb1429324",
     "icons/ms-icon-70x70.png": "07b22b6974bca5a45127820410645c0ba9c178a1d47d671c3375582b56c9b57d",
-    "img/Androids-ART-Runtime.png": "3e6a146f38a9deb6dee664392d054ed048befaa5b4e1984345a5cf189b6bf7dd",
-    "photos/BMW-DEALERSHIP-PANO.jpg": "894ad4a151c3d0c668c23edddda228c6379f64036e7528fa0ee9706426a6136b",
-    "photos/DEUTSCHES-MUSEUM-PANO.jpg": "0ff0b7821c372af55c65bf08740feef4467d7caff942f1cfee00e18ae4374e29",
-    "photos/ZAGREB-PANO-2.jpg": "ab3cc1c4f8fa146691dfdf23e13bf74d0fc0da6f6fd44625d2e67bd03d5e6486",
-    "photos/ZAGREB-PANO.jpg": "3bba2a9305d0289aed0422cd591cff09bc24e1a199301292c13f80fcbfd711b1",
     "screenshots/Analyzed1.jpg": "7d9aaf24060d5cac2fa05b7ee0bf8b9e756e9283c7ab1806339dffdda49cabce",
     "screenshots/Analyzed2.jpg": "a76888d920a6d83c8d488f42fa398b3ad4648e73c5a5c3ae0d9c4a433e68a53b",
     "screenshots/AudioAnalyzer1.jpg": "aab3362313cb5e030010639442a03da16a8477594b3c707db53afd49cfcd64aa",
@@ -91,7 +74,6 @@
     "/apps/beam/privacy/hr/",
     "/apps/beam/support/",
     "/apps/beam/support/hr/",
-    "/apps/events/",
     "/apps/photo-resize/",
     "/apps/photo-resize/hr/",
     "/apps/photo-resize/privacy/",
@@ -108,5 +90,30 @@
     "/events/privacy.html",
     "/events/support-hr.html",
     "/events/support.html"
+  ],
+  "retired_pages": [
+    "/photos/",
+    "/posts/",
+    "/posts/android-runtime/",
+    "/posts/hello-world/",
+    "/posts/initial-content/",
+    "/posts/photo-section/"
+  ],
+  "redirects": {
+    "/apps/": "/",
+    "/apps/events/": "/events/",
+    "/posts/analyzed-windows-64/": "/apps/analyzed/"
+  },
+  "retired_feeds": [
+    "index.xml",
+    "apps/index.xml",
+    "posts/index.xml"
+  ],
+  "retired_assets": [
+    "img/Androids-ART-Runtime.png",
+    "photos/BMW-DEALERSHIP-PANO.jpg",
+    "photos/DEUTSCHES-MUSEUM-PANO.jpg",
+    "photos/ZAGREB-PANO-2.jpg",
+    "photos/ZAGREB-PANO.jpg"
   ]
 }

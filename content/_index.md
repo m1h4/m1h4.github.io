@@ -1,7 +1,8 @@
 ---
-title: "Apps & experiments"
-description: "Small apps, audio experiments, and games by Marko Mihovilić. Explore the collection, download original releases, and read the stories behind them."
-date: 2016-02-09T00:00:00+02:00
+title: "Apps"
+description: "Small, useful apps by Marko Mihovilić. Explore Events, Photo Resize and Beam, find support, and browse older projects."
+aliases: ["/apps/"]
 ---
 
-A collection of apps, audio experiments, and a game made for friends. Built by Marko Mihovilić, and kept here for you to explore.
+A calendar close at hand. A lighter photo to share. Your photos on the TV.\
+Independent software by Marko Mihovilić.

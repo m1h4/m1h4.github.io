@@ -10,7 +10,7 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "A LITTLE HELP",
+  "eyebrow": "A little help",
   "headline": "Make Events yours."
 }
 

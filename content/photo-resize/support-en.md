@@ -10,7 +10,7 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "PHOTO RESIZE · ANDROID 10+",
+  "eyebrow": "Photo Resize · Android 10+",
   "headline": "Help and support"
 }
 

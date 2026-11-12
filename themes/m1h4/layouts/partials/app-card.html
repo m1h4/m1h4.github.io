@@ -1,22 +1,12 @@
-{{ $heading := .heading }}
-{{ with .page }}
 <article class="app-card">
-    <a class="card-link" href="{{ .RelPermalink }}">
-        <div class="card-art{{ if not .Params.screenshot }} card-art-type{{ end }}">
-        {{ with .Params.screenshot }}
-            {{ $image := resources.Get (strings.TrimPrefix "/" .) }}
-            <img src="{{ . }}" alt="{{ $.page.Params.screenshotalt }}" width="{{ $image.Width }}" height="{{ $image.Height }}" loading="lazy" decoding="async">
-        {{ else }}
-            <span class="type-art" aria-hidden="true">{{ .Params.artmark | default (substr .Title 0 1) }}<span>↳</span></span>
-            <span class="art-caption">{{ .Params.artcaption | default .Params.platform }}</span>
-        {{ end }}
-        </div>
+    <a class="app-link" href="{{ .Params.producturl | default .RelPermalink }}">
         <div class="card-copy">
-            <div class="card-meta"><span>{{ .Params.platform }}</span><span>{{ .Params.availability }}</span></div>
-            {{ if eq $heading "h2" }}<h2>{{ .Title }} <span aria-hidden="true">↗</span></h2>{{ else }}<h3>{{ .Title }} <span aria-hidden="true">↗</span></h3>{{ end }}
+            <div class="card-heading">{{ with .Params.icon }}<img class="app-icon" src="{{ . }}" alt="" width="48" height="48">{{ end }}<h3>{{ .Title }} <span class="cue" aria-hidden="true">→</span></h3></div>
+            <p class="label">{{ .Params.platform }}<br>{{ .Params.availability }}</p>
             <p>{{ .Description }}</p>
-            <span class="card-action">{{ with .Params.cardaction }}{{ . }}{{ else }}{{ if .Params.download }}Details & download{{ else }}Explore the archive{{ end }}{{ end }} <span aria-hidden="true">→</span></span>
         </div>
+        {{ with .Params.screenshot }}
+        <div class="card-art">{{ partial "theme-picture" (dict "light" . "dark" $.Params.screenshotdark "alt" $.Params.screenshotalt "loading" "eager" "sizes" "220px") }}</div>
+        {{ end }}
     </a>
 </article>
-{{ end }}

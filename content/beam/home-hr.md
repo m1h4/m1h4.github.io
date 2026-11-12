@@ -10,13 +10,15 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "BEAM · IPHONE I IPAD",
-  "headline": "Vaše fotografije na televizoru."
+  "eyebrow": "Beam · iPhone i iPad",
+  "headline": "Vaše fotografije na televizoru.",
+  "product": true,
+  "intro": "Beam prikazuje fotografije i videozapise s vašeg iPhonea ili iPada na televizoru, putem kućne Wi-Fi mreže. Dodirnite fotografiju i ona je na velikom zaslonu. Listajte, a televizor vas prati.",
+  "releasestatus": "Beam 1.0 priprema se za App Store; poveznica za preuzimanje pojavit će se ovdje kad aplikacija bude dostupna.",
+  "screenshot": "/beam/hr-viewer.jpg",
+  "screenshotalt": "Beam prikazuje fotografiju slapa preko cijelog zaslona, s nazivom televizora na kojem se prikazuje i kontrolama prezentacije ispod.",
+  "screenshotcaption": "Stvarna snimka zaslona aplikacije s generiranom oglednom fotografijom."
 }
-
-Beam prikazuje fotografije i videozapise s vašeg iPhonea ili iPada na televizoru, putem kućne Wi-Fi mreže. Dodirnite fotografiju i ona je na velikom zaslonu. Listajte, a televizor vas prati.
-
-Beam 1.0 priprema se za App Store; poveznica za preuzimanje pojavit će se ovdje kad aplikacija bude dostupna.
 
 ## Dodirnite, listajte, gledajte
 
@@ -31,7 +33,5 @@ Beam koristi DLNA/UPnP, dijeljenje medija koje većina pametnih televizora već 
 ## Privatnost na prvom mjestu
 
 Fotografije putuju s vašeg uređaja izravno na televizor preko vaše vlastite mreže. Ništa se ne šalje na internet, nema korisničkog računa i aplikacija ne prikuplja nikakve podatke. Lokacija i drugi metapodaci uklanjaju se iz fotografija prije slanja.
-
-{{< figure src="/beam/hr-viewer.jpg" alt="Beam prikazuje fotografiju slapa preko cijelog zaslona, s nazivom televizora na kojem se prikazuje i kontrolama prezentacije ispod." width="720" height="1564" loading="lazy" class="photo-resize-preview" caption="Stvarna snimka zaslona aplikacije s generiranom oglednom fotografijom." >}}
 
 [Pomoć i podrška](/apps/beam/support/hr/) · [Pravila privatnosti](/apps/beam/privacy/hr/) · [English](/apps/beam/)

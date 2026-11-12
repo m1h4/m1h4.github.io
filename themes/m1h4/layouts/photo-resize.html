@@ -1,20 +1,5 @@
 {{ partial "header" . }}
-{{ $hr := eq .Params.language "hr" }}
-{{ $home := cond $hr "/apps/photo-resize/hr/" "/apps/photo-resize/" }}
-{{ $privacy := cond $hr "/apps/photo-resize/privacy/hr/" "/apps/photo-resize/privacy/" }}
-{{ $support := cond $hr "/apps/photo-resize/support/hr/" "/apps/photo-resize/support/" }}
-<main id="main-content" class="main shell">
-    <nav class="photo-resize-navigation" aria-label="{{ if $hr }}Navigacija za Photo Resize{{ else }}Photo Resize navigation{{ end }}">
-        <a class="photo-resize-brand" href="{{ $home }}"{{ if eq .RelPermalink $home }} aria-current="page"{{ end }}><img src="/photo-resize/icon.png" alt="{{ if $hr }}Ikona aplikacije Photo Resize{{ else }}Photo Resize app icon{{ end }}" width="48" height="48"> Photo Resize</a>
-        <a href="{{ $privacy }}"{{ if eq .RelPermalink $privacy }} aria-current="page"{{ end }}>{{ if $hr }}Privatnost{{ else }}Privacy{{ end }}</a>
-        <a href="{{ $support }}"{{ if eq .RelPermalink $support }} aria-current="page"{{ end }}>{{ if $hr }}Podrška{{ else }}Support{{ end }}</a>
-        <a href="{{ .Params.alternate }}" lang="{{ if $hr }}en{{ else }}hr{{ end }}" hreflang="{{ if $hr }}en{{ else }}hr{{ end }}">{{ if $hr }}English{{ else }}Hrvatski{{ end }}</a>
-    </nav>
-    <article class="prose">
-        <p class="eyebrow">{{ .Params.eyebrow }}</p>
-        <h1>{{ .Params.headline }}</h1>
-        {{ .Content }}
-    </article>
-    <p class="photo-resize-contact">Photo Resize · Miha Software · <a href="mailto:mihovilic@gmail.com">mihovilic@gmail.com</a></p>
-</main>
+{{ $en := dict "home" "/apps/photo-resize/" "privacy" "/apps/photo-resize/privacy/" "support" "/apps/photo-resize/support/" }}
+{{ $hr := dict "home" "/apps/photo-resize/hr/" "privacy" "/apps/photo-resize/privacy/hr/" "support" "/apps/photo-resize/support/hr/" }}
+{{ partial "product-page" (dict "page" . "name" "Photo Resize" "icon" "/photo-resize/icon.png" "email" "mihovilic@gmail.com" "en" $en "hr" $hr) }}
 {{ partial "footer" . }}

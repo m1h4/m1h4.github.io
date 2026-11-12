@@ -10,7 +10,7 @@
   "outputs": [
     "HTML"
   ],
-  "eyebrow": "AŽURIRANO 6. STUDENOGA 2026.",
+  "eyebrow": "Ažurirano 6. studenoga 2026.",
   "headline": "Pravila privatnosti"
 }
 

@@ -1,3 +1,0 @@
-{{ if and .IsPage (eq .Section "posts") }}
-<p class="post-date">Published <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format .Site.Params.dateFormat }}</time>{{ if and .Params.lastmod (.Lastmod.After .Date) }} · Updated <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format .Site.Params.dateFormat }}</time>{{ end }}</p>
-{{ end }}

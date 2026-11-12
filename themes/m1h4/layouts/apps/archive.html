@@ -1,0 +1,19 @@
+{{ partial "header" . }}
+<main id="main-content" class="main shell">
+    <a class="back-link" href="/">← Current apps</a>
+    <header class="page-header">
+        <p class="label">From the archive</p>
+        <h1>{{ .Title }}</h1>
+        <div class="lead">{{ .Content }}</div>
+        <p class="note">These are historical releases. Compatibility with current Windows versions has not been verified.</p>
+    </header>
+    <ul class="app-list">
+    {{ range (where (where .Site.RegularPages "Section" "apps") "Params.collection" "archive").ByWeight }}
+        <li><a class="app-link" href="{{ .RelPermalink }}">
+            <div><h2>{{ .Title }}</h2><p class="label">{{ .Params.platform }} · {{ .Params.version }}</p></div>
+            <div><p>{{ .Description }}</p><span class="cue">Details &amp; download <span aria-hidden="true">→</span></span></div>
+        </a></li>
+    {{ end }}
+    </ul>
+</main>
+{{ partial "footer" . }}
