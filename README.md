@@ -29,6 +29,8 @@ python3 -m venv .venv
 .venv/bin/python scripts/check-site.py public --analytics on
 ```
 
+`./scripts/build preview` and `./scripts/build production` do the same in one step: each empties `public/`, builds into it, and validates the result.
+
 The checks parse HTML, validate metadata, internal links, sitemap and feeds, verify analytics inclusion, and compare original images/downloads/icons against the pre-migration SHA-256 manifest. When intentionally adding a content page, add its route to `tests/legacy-contract.json`; preserve existing routes and asset checksums unless a deliberate replacement is approved.
 
 ## Publishing
@@ -38,6 +40,16 @@ Open a pull request against `master`. CI builds both test and production output 
 Pages must use **GitHub Actions**, with custom domain **www.mihasoftware.com** and **Enforce HTTPS** enabled. DNS remains at its existing provider. With Actions publishing, the domain is managed in Pages settings; a CNAME file is unnecessary. The apex and GitHub hostname redirect to the canonical `www` URL.
 
 The build job has read-only repository permissions. Only the production deployment job receives `pages: write` and `id-token: write`; production deployments are serialized. No personal access token or cross-repository push is used. Monthly Dependabot PRs update the pinned Actions revisions. To update Hugo, change `.hugo-version`, run both validations, and review the browser preview before merging.
+
+## Cloudflare builds and previews
+
+Cloudflare Workers Builds also builds this repository, as the Worker `mihasoftware` described by `wrangler.jsonc`: static assets from `public/`, no Worker script, and `404.html` for unknown paths. GitHub Pages remains the production host until `www.mihasoftware.com` is moved to the Worker.
+
+The Worker must use these settings under **Settings → Build**: build command `./scripts/build`, deploy command `npx wrangler deploy`, preview command `npx wrangler preview`, production branch `master`, and **Enable Preview Builds** on. Its name must match `name` in `wrangler.jsonc`, or builds fail. No build variables are needed; `scripts/build` reads the branch from `WORKERS_CI_BRANCH`.
+
+Pushes to `master` get the production build and deploy it. Every other branch gets a Preview: a `test` build without analytics at its own `workers.dev` address, which Cloudflare posts on the pull request. Both builds run the validator, and a failure stops the deployment. Keep the `workers.dev` and Preview URLs behind Cloudflare Access (**Settings → Domains & Routes**) so previews stay private; they also send `X-Robots-Tag: noindex`.
+
+Cloudflare redirects `.html` pages such as `/events/privacy.html` to the same path without the extension, where GitHub Pages serves both forms.
 
 ## Analytics
 

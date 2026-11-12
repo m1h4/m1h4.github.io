@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Build the site into public/ and validate it. Cloudflare runs this for every push.
+#
+#   scripts/build [production|preview]
+#
+# On Cloudflare the mode follows the branch: master is the production build, any other
+# branch is a preview build without analytics. A validation failure fails the build,
+# so an invalid site is never deployed.
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+export TZ="${TZ:-Europe/Zagreb}"
+
+case "${1:-${WORKERS_CI_BRANCH:-preview}}" in
+    production|master) environment=production analytics=on ;;
+    *) environment=test analytics=off ;;
+esac
+
+[[ -x .venv/bin/python ]] || python3 -m venv .venv
+.venv/bin/python -m pip install --quiet --disable-pip-version-check -r tests/requirements.txt
+
+# Hugo never removes pages that no longer exist, so start from an empty output folder.
+rm -rf public
+./scripts/hugo --environment "$environment" --minify --panicOnWarning
+.venv/bin/python scripts/check-site.py public --analytics "$analytics"
