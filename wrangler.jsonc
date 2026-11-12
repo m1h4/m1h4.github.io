@@ -1,0 +1,14 @@
+// Cloudflare Workers static assets: serves the Hugo output in public/ with no Worker script.
+// The Worker in the Cloudflare dashboard must have the same name.
+{
+    "name": "mihasoftware",
+    "compatibility_date": "2026-11-12",
+    "assets": {
+        "directory": "./public",
+        // Unknown paths get the site's 404.html with a 404 status.
+        "not_found_handling": "404-page"
+    },
+    // Pull-request previews are served on workers.dev, behind Cloudflare Access.
+    "preview_urls": true,
+    "previews": {}
+}

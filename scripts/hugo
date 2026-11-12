@@ -20,7 +20,11 @@ if [[ ! -x "$tools_dir/hugo" ]]; then
     (
         cd "$download_dir"
         awk -v file="$package" '$2 == file { print; found=1 } END { if (!found) exit 1 }' checksums.txt > selected-checksum.txt
-        shasum -a 256 --check selected-checksum.txt
+        if command -v shasum > /dev/null; then
+            shasum -a 256 --check selected-checksum.txt
+        else
+            sha256sum --check selected-checksum.txt
+        fi
     ) >&2
     mkdir -p "$tools_dir"
     if [[ "$package" == *.pkg ]]; then
